@@ -1,0 +1,1089 @@
+/* =========================================================
+   GRUBORJA — COMPONENTES REUTILIZABLES
+   Botones, header, menú móvil, hero, tarjetas, banda CTA,
+   footer y modal de proyecto.
+   ========================================================= */
+
+
+/* =========================================================
+   1. BOTONES
+   - .btn--primary   → acción principal (morado sólido)
+   - .btn--outline   → acción secundaria sobre fondo oscuro
+   - .btn--ghost     → acción secundaria sobre fondo claro
+   - .btn--invert    → acción principal sobre fondo morado
+   Todos miden mínimo 48px de alto (área táctil cómoda).
+   ========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: 52px;
+  padding: 0.85rem 1.75rem;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-align: center;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  transition: background-color var(--t-fast) var(--ease),
+              color var(--t-fast) var(--ease),
+              border-color var(--t-fast) var(--ease),
+              transform var(--t-fast) var(--ease);
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform var(--t-fast) var(--ease);
+}
+
+.btn:hover svg {
+  transform: translateX(4px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--color-purple);
+  color: var(--color-white);
+}
+
+.btn--primary:hover {
+  background: var(--color-purple-hover);
+}
+
+.btn--outline {
+  border-color: rgba(255, 255, 255, 0.7);
+  color: var(--color-white);
+}
+
+.btn--outline:hover {
+  background: var(--color-white);
+  color: var(--color-navy);
+}
+
+.btn--ghost {
+  border-color: var(--color-purple);
+  color: var(--color-purple);
+}
+
+.btn--ghost:hover {
+  background: var(--color-purple);
+  color: var(--color-white);
+}
+
+.btn--invert {
+  background: var(--color-white);
+  color: var(--color-purple-deep);
+}
+
+.btn--invert:hover {
+  background: var(--color-lilac);
+}
+
+.btn--sm {
+  min-height: 44px;
+  padding: 0.6rem 1.25rem;
+  font-size: var(--fs-xs);
+}
+
+/* Enlace de texto con flecha y subrayado animado */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-purple);
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 100% 1px;
+  background-position: 0 calc(100% - 8px);
+  background-repeat: no-repeat;
+  transition: background-size var(--t-med) var(--ease);
+}
+
+.link-arrow svg {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--t-fast) var(--ease);
+}
+
+.link-arrow:hover svg {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   2. HEADER FIJO
+   Siempre visible. Al hacer scroll se compacta (clase
+   .is-scrolled agregada por JS).
+   ========================================================= */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  height: var(--header-h);
+  background: rgba(255, 255, 255, 0.94);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  backdrop-filter: saturate(160%) blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: height var(--t-med) var(--ease),
+              border-color var(--t-med) var(--ease),
+              box-shadow var(--t-med) var(--ease);
+}
+
+.site-header.is-scrolled {
+  height: var(--header-h-compact);
+  border-bottom-color: var(--color-line);
+  box-shadow: 0 6px 24px -18px rgba(13, 19, 48, 0.5);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  height: 100%;
+}
+
+.site-header__logo img {
+  height: 34px;
+  width: auto;
+  transition: height var(--t-med) var(--ease);
+}
+
+.site-header.is-scrolled .site-header__logo img {
+  height: 30px;
+}
+
+/* Navegación de escritorio */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-7);
+}
+
+.main-nav__list {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.main-nav__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  transition: color var(--t-fast) var(--ease);
+}
+
+/* Línea inferior animada; se queda fija en la página activa */
+.main-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  height: 2px;
+  background: var(--color-purple);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t-med) var(--ease);
+}
+
+.main-nav__link:hover {
+  color: var(--color-purple);
+}
+
+.main-nav__link:hover::after,
+.main-nav__link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.main-nav__link[aria-current="page"] {
+  color: var(--color-purple);
+  font-weight: 600;
+}
+
+/* Botón hamburguesa (solo móvil/tablet) */
+.menu-toggle {
+  display: none;
+  position: relative;
+  width: 48px;
+  height: 48px;
+  margin-right: -12px;
+}
+
+.menu-toggle__bar {
+  position: absolute;
+  left: 12px;
+  width: 24px;
+  height: 2px;
+  background: var(--color-navy);
+  transition: transform var(--t-med) var(--ease), opacity var(--t-fast);
+}
+
+.menu-toggle__bar:nth-child(1) { top: 16px; }
+.menu-toggle__bar:nth-child(2) { top: 23px; }
+.menu-toggle__bar:nth-child(3) { top: 30px; }
+
+/* Se convierte en "X" cuando el menú está abierto */
+.menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---------- Menú en móvil y tablet (< 900px) ---------- */
+@media (max-width: 899px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    height: calc(100dvh - var(--header-h));
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: var(--space-6);
+    padding: var(--space-6) var(--gutter) var(--space-7);
+    background: var(--color-white);
+    border-top: var(--border);
+    /* Oculto por defecto */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition: opacity var(--t-med) var(--ease),
+                transform var(--t-med) var(--ease),
+                visibility 0s linear var(--t-med);
+  }
+
+  .site-header.is-scrolled .main-nav {
+    top: var(--header-h-compact);
+    height: calc(100dvh - var(--header-h-compact));
+  }
+
+  .main-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition-delay: 0s;
+  }
+
+  .main-nav__list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .main-nav__list li {
+    border-bottom: var(--border);
+  }
+
+  .main-nav__link {
+    width: 100%;
+    min-height: 64px;
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: none;
+  }
+
+  .main-nav__link::after {
+    display: none;
+  }
+
+  .main-nav .btn {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   3. HERO (encabezado con foto)
+   El texto va directo sobre un degradado oscuro que garantiza
+   contraste en cualquier foto (mejora UX #1 del análisis).
+   ========================================================= */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: min(88vh, 760px);
+  padding-top: calc(var(--header-h) + var(--space-7));
+  padding-bottom: var(--space-8);
+  color: var(--color-white);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero--short {
+  min-height: min(70vh, 600px);
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Zoom lento de entrada */
+  animation: hero-zoom 14s var(--ease) both;
+}
+
+/* Capa de color: más oscura a la izquierda, donde va el texto */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(13, 19, 48, 0.92) 0%, rgba(42, 10, 58, 0.78) 45%, rgba(95, 16, 122, 0.35) 100%),
+    linear-gradient(0deg, rgba(13, 19, 48, 0.55) 0%, transparent 40%);
+}
+
+@keyframes hero-zoom {
+  from { transform: scale(1.08); }
+  to   { transform: scale(1); }
+}
+
+.hero__content {
+  max-width: 820px;
+}
+
+/* Etiqueta enmarcada con línea de 1px (constante de marca) */
+.hero__tag {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  margin-bottom: var(--space-5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.hero__title {
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+}
+
+.hero__title em {
+  font-style: normal;
+  color: var(--color-lilac);
+}
+
+.hero__text {
+  max-width: 620px;
+  margin-top: var(--space-5);
+  font-size: var(--fs-md);
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+/* Indicador "Explora" con línea animada */
+.hero__scroll {
+  position: absolute;
+  left: var(--gutter);
+  bottom: var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.hero__scroll-line {
+  position: relative;
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+.hero__scroll-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -40px;
+  width: 1px;
+  height: 40px;
+  background: var(--color-white);
+  animation: scroll-line 2.2s var(--ease) infinite;
+}
+
+@keyframes scroll-line {
+  to { top: 40px; }
+}
+
+@media (max-width: 599px) {
+  .hero__actions .btn {
+    width: 100%;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   4. TARJETA DE PROYECTO
+   Se usa en Inicio (a color) y Portafolio (escala de grises
+   → color al pasar el cursor). Toda la tarjeta es un botón
+   que abre el modal.
+   ========================================================= */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+@media (max-width: 1023px) {
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 639px) {
+  .project-grid { grid-template-columns: 1fr; }
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  background: var(--color-white);
+  border: var(--border);
+  transition: border-color var(--t-med) var(--ease),
+              box-shadow var(--t-med) var(--ease),
+              transform var(--t-med) var(--ease);
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  border-color: var(--color-purple);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+.project-card__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-bg-alt);
+}
+
+.project-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--t-slow) var(--ease), filter var(--t-slow) var(--ease);
+}
+
+.project-card:hover .project-card__media img,
+.project-card:focus-visible .project-card__media img {
+  transform: scale(1.06);
+}
+
+/* --- Variante del portafolio: gris por defecto, color al interactuar --- */
+.project-card--mono .project-card__media img {
+  filter: grayscale(1) contrast(1.05);
+}
+
+.project-card--mono:hover .project-card__media img,
+.project-card--mono:focus-visible .project-card__media img {
+  filter: none;
+}
+
+/* En pantallas táctiles no hay hover: la foto toma color al aparecer
+   en pantalla (JS agrega .is-colored) */
+@media (hover: none) {
+  .project-card--mono.is-colored .project-card__media img {
+    filter: none;
+  }
+}
+
+/* Etiqueta de sector sobre la foto */
+.project-card__tag {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  padding: 0.3rem 0.65rem;
+  background: var(--color-purple-deep);
+  color: var(--color-white);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Icono "+" que aparece al pasar el cursor */
+.project-card__zoom {
+  position: absolute;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  background: var(--color-white);
+  color: var(--color-purple);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--t-med) var(--ease), transform var(--t-med) var(--ease);
+}
+
+.project-card__zoom svg {
+  width: 20px;
+  height: 20px;
+}
+
+.project-card:hover .project-card__zoom,
+.project-card:focus-visible .project-card__zoom {
+  opacity: 1;
+  transform: none;
+}
+
+.project-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-5);
+}
+
+.project-card__title {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+}
+
+.project-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin-top: var(--space-3);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.project-card__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.project-card__meta svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.project-card__desc {
+  margin-top: var(--space-4);
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+}
+
+.project-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-5);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-purple);
+}
+
+.project-card__cta svg {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--t-fast) var(--ease);
+}
+
+.project-card:hover .project-card__cta svg {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   5. BANDA CTA (llamada a la acción final)
+   ========================================================= */
+.cta-band {
+  position: relative;
+  padding-block: var(--section-y);
+  background: var(--color-purple-deep);
+  color: var(--color-white);
+  text-align: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Detalle gráfico: anillos lineales inspirados en el isotipo */
+.cta-band::before,
+.cta-band::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border: 1px solid rgba(226, 198, 240, 0.18);
+  border-radius: 50%;
+}
+
+.cta-band::before {
+  width: 520px;
+  height: 520px;
+  right: -160px;
+  top: -220px;
+}
+
+.cta-band::after {
+  width: 260px;
+  height: 260px;
+  left: -90px;
+  bottom: -120px;
+}
+
+.cta-band__title {
+  max-width: 820px;
+  margin-inline: auto;
+  font-size: var(--fs-xl);
+  font-weight: 800;
+  color: var(--color-white);
+  text-transform: uppercase;
+}
+
+.cta-band__text {
+  max-width: 620px;
+  margin: var(--space-4) auto 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: var(--fs-md);
+}
+
+.cta-band__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+
+/* =========================================================
+   6. FOOTER
+   ========================================================= */
+.site-footer {
+  background: var(--color-navy);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--fs-sm);
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.4fr;
+  gap: var(--space-7);
+  padding-block: var(--space-8);
+}
+
+@media (max-width: 899px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .site-footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 559px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+.site-footer__logo {
+  height: 40px;
+  width: auto;
+  margin-bottom: var(--space-5);
+}
+
+.site-footer__brand p {
+  max-width: 340px;
+}
+
+.site-footer__title {
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.site-footer__list li + li {
+  margin-top: var(--space-1);
+}
+
+.site-footer__list a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 40px;
+  transition: color var(--t-fast) var(--ease);
+}
+
+.site-footer__list a:hover {
+  color: var(--color-white);
+}
+
+.site-footer__list svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--color-lilac);
+}
+
+.site-footer__address {
+  display: flex;
+  gap: var(--space-3);
+  font-style: normal;
+  margin-top: var(--space-2);
+}
+
+.site-footer__address svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--color-lilac);
+}
+
+.site-footer__bottom {
+  padding-block: var(--space-5);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* =========================================================
+   7. MODAL DE PROYECTO (galería + ficha técnica)
+   Usa el elemento nativo <dialog>: maneja el foco y la
+   tecla Esc de forma accesible.
+   ========================================================= */
+.project-modal {
+  width: min(1180px, 100% - 2rem);
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  border: 0;
+  background: var(--color-white);
+  color: var(--color-text);
+  overflow: hidden;
+}
+
+.project-modal::backdrop {
+  background: rgba(13, 19, 48, 0.82);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.project-modal[open] {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  animation: modal-in var(--t-med) var(--ease);
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+
+.project-modal__close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  background: var(--color-white);
+  border: var(--border);
+  color: var(--color-navy);
+  transition: background-color var(--t-fast), color var(--t-fast);
+}
+
+.project-modal__close:hover {
+  background: var(--color-purple);
+  border-color: var(--color-purple);
+  color: var(--color-white);
+}
+
+.project-modal__close svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ----- Galería ----- */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--color-navy);
+}
+
+.gallery__stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fade-in var(--t-med) var(--ease);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.gallery__nav {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-navy);
+  transition: background-color var(--t-fast), color var(--t-fast);
+}
+
+.gallery__nav:hover {
+  background: var(--color-purple);
+  color: var(--color-white);
+}
+
+.gallery__nav svg {
+  width: 22px;
+  height: 22px;
+}
+
+.gallery__nav--prev { left: var(--space-3); }
+.gallery__nav--next { right: var(--space-3); }
+
+.gallery__counter {
+  position: absolute;
+  left: var(--space-3);
+  bottom: var(--space-3);
+  padding: 0.25rem 0.6rem;
+  background: rgba(13, 19, 48, 0.8);
+  color: var(--color-white);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+}
+
+.gallery__credit {
+  position: absolute;
+  right: var(--space-3);
+  bottom: var(--space-3);
+  font-size: 0.6875rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.gallery__thumbs {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.gallery__thumb {
+  flex: 0 0 76px;
+  height: 56px;
+  opacity: 0.5;
+  border: 2px solid transparent;
+  transition: opacity var(--t-fast), border-color var(--t-fast);
+}
+
+.gallery__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery__thumb:hover {
+  opacity: 0.85;
+}
+
+.gallery__thumb[aria-current="true"] {
+  opacity: 1;
+  border-color: var(--color-lilac);
+}
+
+/* ----- Ficha técnica ----- */
+.spec {
+  padding: var(--space-7) var(--space-6) var(--space-6);
+  overflow-y: auto;
+}
+
+.spec__sector {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-purple);
+}
+
+.spec__title {
+  margin-top: var(--space-2);
+  padding-right: var(--space-7);
+  font-size: var(--fs-xl);
+}
+
+.spec__subtitle {
+  margin-top: var(--space-2);
+  color: var(--color-text-soft);
+}
+
+.spec__desc {
+  margin-top: var(--space-5);
+  font-size: var(--fs-sm);
+}
+
+.spec__table {
+  margin-top: var(--space-5);
+  border-top: var(--border);
+}
+
+.spec__row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+  border-bottom: var(--border);
+  font-size: var(--fs-sm);
+}
+
+.spec__row dt {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  padding-top: 2px;
+}
+
+.spec__row dd {
+  margin: 0;
+  color: var(--color-navy);
+  font-weight: 500;
+}
+
+.spec__row ul {
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.spec__actions {
+  margin-top: var(--space-6);
+}
+
+.spec__actions .btn {
+  width: 100%;
+}
+
+/* Modal en tablet y móvil: una sola columna con scroll */
+@media (max-width: 899px) {
+  .project-modal[open] {
+    display: block;
+    overflow-y: auto;
+  }
+
+  .gallery__stage {
+    aspect-ratio: 4 / 3;
+  }
+
+  .spec {
+    padding: var(--space-6) var(--space-5);
+    overflow: visible;
+  }
+
+  .spec__title {
+    padding-right: 0;
+  }
+
+  /* El botón de cerrar se queda visible mientras se hace scroll */
+  .project-modal__close {
+    position: sticky;
+    top: var(--space-3);
+    right: auto;
+    margin: var(--space-3) var(--space-3) -60px auto;
+  }
+}
+
+@media (max-width: 559px) {
+  .project-modal {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100dvh;
+    height: 100dvh;
+    margin: 0;
+  }
+
+  .spec__row {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+}

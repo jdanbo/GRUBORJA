@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio | GRUBORJA — +700,000 m² de confianza construida</title>
+  <meta name="description" content="Proyectos comerciales, industriales, corporativos, hoteleros, hospitalarios y académicos desarrollados por GRUBORJA en Guatemala y Centroamérica.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Portafolio | GRUBORJA">
+  <meta property="og:description" content="+700,000 m² de confianza construida en Guatemala y Centroamérica.">
+  <meta property="og:image" content="assets/img/sitio/og-imagen.jpg">
+  <meta property="og:locale" content="es_GT">
+  <meta name="theme-color" content="#0D1330">
+
+  <link rel="icon" type="image/png" href="assets/logos/favicon.png">
+  <link rel="apple-touch-icon" href="assets/logos/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="image" href="assets/img/sitio/hero-portafolio.webp">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/paginas.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__logo" href="index.html" aria-label="GRUBORJA — Inicio">
+        <img src="assets/logos/gruborja-color-horizontal.png" alt="GRUBORJA" width="872" height="200">
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+      </button>
+
+      <nav class="main-nav" id="menu-principal" aria-label="Navegación principal">
+        <ul class="main-nav__list" role="list">
+          <li><a class="main-nav__link" href="index.html">Inicio</a></li>
+          <li><a class="main-nav__link" href="servicios.html">Servicios</a></li>
+          <li><a class="main-nav__link" href="portafolio.html" aria-current="page">Portafolio</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm" href="mailto:infogrupoborja@gmail.com?subject=Solicitud%20de%20asesor%C3%ADa%20t%C3%A9cnica">Contáctanos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero hero--short" aria-labelledby="hero-titulo">
+      <div class="hero__media">
+        <img src="assets/img/sitio/hero-portafolio.webp" alt="" fetchpriority="high">
+      </div>
+      <div class="container">
+        <div class="hero__content">
+          <p class="hero__tag">Nuestro portafolio</p>
+          <h1 class="hero__title" id="hero-titulo">Nuestra experiencia: <em>+700,000 m² de confianza construida.</em></h1>
+          <p class="hero__text">
+            Explora nuestra trayectoria técnica. Hemos ejecutado y gestionado infraestructura de gran
+            escala para las marcas y corporaciones más exigentes de Guatemala y Centroamérica.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         FILTROS (se quedan fijos bajo el header al hacer scroll)
+         Los botones se crean desde js/portafolio.js
+         ===================================================== -->
+    <div class="filters">
+      <div class="container filters__inner">
+        <span class="filters__label" id="filtros-label">Filtrar por sector:</span>
+        <ul class="filters__list" id="filtros" role="list" aria-labelledby="filtros-label"></ul>
+      </div>
+    </div>
+
+    <!-- ===================== CUADRÍCULA ===================== -->
+    <section class="section" aria-labelledby="proyectos-titulo">
+      <div class="container">
+        <h2 class="sr-only" id="proyectos-titulo">Proyectos</h2>
+        <p class="results-info" id="resultados" aria-live="polite"></p>
+
+        <ul class="project-grid" id="portafolio-grid" role="list"></ul>
+
+        <div class="load-more">
+          <div class="load-more__progress" aria-hidden="true"><div class="load-more__bar"></div></div>
+          <span class="load-more__text"></span>
+          <button class="btn btn--ghost" type="button" id="cargar-mas">Cargar más proyectos</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== INGENIERÍA ===================== -->
+    <section class="section section--alt" aria-labelledby="ingenieria-titulo">
+      <div class="container engineering">
+        <div class="engineering__intro reveal">
+          <span class="eyebrow">Nuestro enfoque</span>
+          <h2 class="section-title" id="ingenieria-titulo">Ingeniería de alta precisión</h2>
+          <p>
+            Nuestro enfoque se basa en la viabilidad estructural y la optimización de recursos a través
+            de modelado BIM avanzado y supervisión técnica rigurosa.
+          </p>
+        </div>
+
+        <div class="info-card reveal">
+          <span class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="4.5" r="1.8"/><path d="M11.2 6.2 6 20.5M12.8 6.2 18 20.5M8.2 15h7.6"/></svg>
+          </span>
+          <h3 class="info-card__title">Diseño estructural</h3>
+          <p class="info-card__text">Análisis sísmico de última generación para edificaciones de alta densidad.</p>
+        </div>
+
+        <div class="info-card reveal">
+          <span class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M8 16.5v-4M12 16.5v-9M16 16.5v-6"/></svg>
+          </span>
+          <h3 class="info-card__title">Gestión técnica</h3>
+          <p class="info-card__text">Cumplimiento estricto de normas internacionales de seguridad y calidad.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA FINAL ===================== -->
+    <section class="cta-band" aria-labelledby="cta-titulo">
+      <div class="container reveal">
+        <h2 class="cta-band__title" id="cta-titulo">¿Iniciamos tu próximo gran proyecto?</h2>
+        <p class="cta-band__text">Habla con nuestros expertos sobre la viabilidad estructural y la proyección técnica de tu obra.</p>
+        <div class="cta-band__actions">
+          <a class="btn btn--invert" href="mailto:infogrupoborja@gmail.com?subject=Solicitud%20de%20asesor%C3%ADa%20t%C3%A9cnica">
+            Solicitar asesoría técnica
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--outline" href="servicios.html">Nuestros servicios</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div class="site-footer__brand">
+        <img class="site-footer__logo" src="assets/logos/gruborja-blanco-horizontal.png" alt="GRUBORJA" width="870" height="200">
+        <p>Proyección arquitectónica, sistemas estructurales y gestión de proyectos de infraestructura en Guatemala y Centroamérica desde 1983.</p>
+      </div>
+
+      <nav aria-label="Navegación del pie de página">
+        <h2 class="site-footer__title">Navegación</h2>
+        <ul class="site-footer__list" role="list">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="portafolio.html">Portafolio</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="site-footer__title">Sede central</h2>
+        <ul class="site-footer__list" role="list">
+          <li>
+            <a href="tel:+50222204814">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+              (+502) 2220 4814
+            </a>
+          </li>
+          <li>
+            <a href="mailto:infogrupoborja@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="m3 6 9 7 9-7"/></svg>
+              infogrupoborja@gmail.com
+            </a>
+          </li>
+        </ul>
+        <address class="site-footer__address">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <span>3a. Calle No. 3-54, Zona 1, Centro Histórico, Ciudad de Guatemala</span>
+        </address>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <div class="container">© <span data-year>2026</span> Grupo Borja. Infraestructura con visión de futuro.</div>
+    </div>
+  </footer>
+
+  <script src="data/proyectos.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/proyectos.js"></script>
+  <script src="js/portafolio.js"></script>
+</body>
+</html>

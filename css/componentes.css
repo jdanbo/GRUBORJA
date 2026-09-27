@@ -815,8 +815,10 @@
    tecla Esc de forma accesible.
    ========================================================= */
 .project-modal {
-  width: min(1180px, 100% - 2rem);
-  max-height: calc(100dvh - 2rem);
+  width: min(1400px, 100% - 3rem);
+  height: min(900px, 100dvh - 3rem);
+  max-width: none;
+  max-height: none;
   padding: 0;
   border: 0;
   background: var(--color-white);
@@ -832,7 +834,8 @@
 
 .project-modal[open] {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: minmax(0, 1.55fr) minmax(380px, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   animation: modal-in var(--t-med) var(--ease);
 }
 
@@ -879,14 +882,24 @@
   position: relative;
   flex: 1;
   min-height: 0;
-  aspect-ratio: 4 / 3;
   overflow: hidden;
+  isolation: isolate;
+}
+
+/* Fondo difuminado con la misma foto: rellena los bordes sin recortar la imagen */
+.gallery__stage::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  z-index: -1;
+  background: var(--gallery-bg, none) center / cover no-repeat;
+  filter: blur(28px) brightness(0.45);
 }
 
 .gallery__img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* la foto se ve completa */
   animation: fade-in var(--t-med) var(--ease);
 }
 
@@ -944,6 +957,7 @@
 .gallery__thumbs {
   display: flex;
   gap: var(--space-2);
+  justify-content: safe center;
   padding: var(--space-3);
   overflow-x: auto;
   scrollbar-width: thin;
@@ -974,8 +988,11 @@
 
 /* ----- Ficha técnica ----- */
 .spec {
+  min-height: 0;
   padding: var(--space-7) var(--space-6) var(--space-6);
   overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
 }
 
 .spec__sector {
@@ -1046,12 +1063,18 @@
 
 /* Modal en tablet y móvil: una sola columna con scroll */
 @media (max-width: 899px) {
+  .project-modal {
+    height: auto;
+    max-height: calc(100dvh - 2rem);
+  }
+
   .project-modal[open] {
     display: block;
     overflow-y: auto;
   }
 
   .gallery__stage {
+    flex: none;
     aspect-ratio: 4 / 3;
   }
 
@@ -1086,4 +1109,301 @@
     grid-template-columns: 1fr;
     gap: var(--space-1);
   }
+}
+
+/* =========================================================
+   FICHA TÉCNICA DEL MODAL · RESUMEN DE SECTOR · TARJETAS
+   (agregado para la sección automotriz / Grupo Los Tres)
+   ========================================================= */
+
+/* ----- Tarjeta: cliente y período sobre el título ----- */
+.project-card__kicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  margin-bottom: var(--space-1);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-purple);
+}
+
+.project-card__kicker span + span {
+  color: var(--color-text-soft);
+}
+
+/* Imagen genérica: no se pasa a gris */
+.project-card__media--generic img {
+  filter: none !important;
+}
+
+/* ----- Encabezados de bloque ----- */
+.spec__heading {
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.spec__block[hidden] {
+  display: none;
+}
+
+/* ----- Datos clave en cuadrícula ----- */
+.spec__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  border-top: var(--border);
+  border-left: var(--border);
+}
+
+.spec__cell {
+  padding: var(--space-3) var(--space-4);
+  border-right: var(--border);
+  border-bottom: var(--border);
+}
+
+.spec__cell:first-child {
+  grid-column: 1 / -1; /* Ubicación ocupa todo el ancho */
+}
+
+.spec__cell dt {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.spec__cell dd {
+  margin: var(--space-1) 0 0;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--color-navy);
+}
+
+/* ----- Listas ----- */
+.spec__list {
+  margin: 0;
+  padding-left: 1.1em;
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+}
+
+.spec__list li + li {
+  margin-top: var(--space-1);
+}
+
+.spec__list li::marker {
+  color: var(--color-purple);
+}
+
+/* ----- Acción profesional (etiquetas) ----- */
+.spec__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.spec__chip {
+  padding: 0.35em 0.8em;
+  border: 1px solid var(--color-lilac);
+  background: var(--color-lilac-soft);
+  color: var(--color-purple);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+/* ----- Equipo de proyecto ----- */
+.spec__team {
+  margin: 0;
+  border-top: var(--border);
+}
+
+.spec__team-row {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: var(--space-4);
+  padding-block: var(--space-2);
+  border-bottom: var(--border);
+  font-size: var(--fs-sm);
+}
+
+.spec__team-row dt {
+  color: var(--color-text-soft);
+}
+
+.spec__team-row dd {
+  margin: 0;
+  color: var(--color-navy);
+  font-weight: 500;
+}
+
+.spec__desc {
+  margin-top: 0;
+}
+
+/* ----- Anterior / Siguiente ----- */
+.spec__pager {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: var(--border);
+}
+
+.spec__pager[hidden] {
+  display: none;
+}
+
+.spec__pager-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+  padding: var(--space-2);
+  border: 0;
+  background: none;
+  color: var(--color-navy);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.spec__pager-btn--next {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.spec__pager-btn:hover strong {
+  color: var(--color-purple);
+}
+
+.spec__pager-btn svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+}
+
+.spec__pager-btn span {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.spec__pager-btn small {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.spec__pager-btn strong {
+  overflow: hidden;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.spec__pager-count {
+  font-size: var(--fs-xs);
+  color: var(--color-text-soft);
+}
+
+/* ----- Resumen de sector (sobre la cuadrícula) ----- */
+.sector-summary {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+  padding: var(--space-6);
+  background: var(--color-purple-deep);
+  color: var(--color-white);
+}
+
+.sector-summary[hidden] {
+  display: none;
+}
+
+.sector-summary__eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-lilac);
+}
+
+.sector-summary__title {
+  margin-top: var(--space-2);
+  font-size: var(--fs-xl);
+  color: var(--color-white);
+}
+
+.sector-summary__text {
+  margin-top: var(--space-3);
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sector-summary__data {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  align-content: center;
+}
+
+.sector-summary__data div {
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sector-summary__data dt {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-lilac);
+}
+
+.sector-summary__data dd {
+  margin: var(--space-1) 0 0;
+  font-weight: 600;
+}
+
+@media (max-width: 899px) {
+  .sector-summary {
+    grid-template-columns: 1fr;
+    padding: var(--space-5);
+  }
+}
+
+@media (max-width: 559px) {
+  .spec__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spec__team-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .spec__pager-btn strong {
+    display: none;
+  }
+}
+
+/* Con una sola foto se ocultan flechas y miniaturas */
+.gallery__nav[hidden],
+.gallery__thumbs[hidden] {
+  display: none;
 }

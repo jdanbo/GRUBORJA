@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arq. Daniel Borja</title>
+
+  <!-- ==========================================================
+       SEO: descripción y vista previa al compartir (WhatsApp, LinkedIn)
+       Cambia "https://gruborja.com" por el dominio final del sitio.
+       ========================================================== -->
+  <meta name="description" content="Trayectoria del Arq. Daniel Borja Rosales: exdecano de la Facultad de Arquitectura URL, fundador del Diseño Industrial en Guatemala y más de 40 años de práctica profesional.">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Arq. Daniel Borja Rosales | Trayectoria">
+  <meta property="og:description" content="Exdecano de Arquitectura URL, formador de más de 1,500 arquitectos y más de 40 años de obra en Guatemala y Centroamérica.">
+  <meta property="og:image" content="https://gruborja.com/assets/img/fundador/daniel-borja-retrato.webp">
+  <meta property="og:url" content="https://gruborja.com/codbr.html">
+
+  <!-- Tipografía de marca: Work Sans (la misma del logo y de los documentos GRUBORJA) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap">
+
+  <link rel="stylesheet" href="css/fundador.css">
+
+  <!-- Datos estructurados: ayudan a Google a entender quién es el Arq. Borja -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Daniel Arturo Borja Rosales",
+    "honorificPrefix": "Arq.",
+    "jobTitle": "Arquitecto fundador",
+    "nationality": "Guatemalteca",
+    "worksFor": { "@type": "Organization", "name": "GRUBORJA" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Universidad Rafael Landívar" },
+      { "@type": "EducationalOrganization", "name": "Colegio La Preparatoria" }
+    ],
+    "award": [
+      "Premio a la Mejor Tesis del Año 1982, Colegio de Arquitectos de Guatemala",
+      "Premio Lámina de Oro 1990, Asociación Latinoamericana del Fibrocemento",
+      "Premio Nacional Opus de Arquitectura 1991, Hotel Villa Maya"
+    ],
+    "sameAs": ["https://www.linkedin.com/in/arqdanielborja/"]
+  }
+  </script>
+</head>
+<body>
+
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <!-- ==========================================================
+       NAVEGACIÓN (misma estructura que el resto del sitio)
+       ========================================================== -->
+  <header class="nav">
+    <div class="nav__interior">
+      <a class="nav__logo" href="index.html" aria-label="GRUBORJA, inicio">
+        <span class="nav__punto" aria-hidden="true"></span>GRUBORJA
+      </a>
+
+      <button class="nav__boton" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav__barras" aria-hidden="true"></span>
+        <span class="sr">Abrir menú</span>
+      </button>
+
+      <nav id="nav-menu" class="nav__menu" aria-label="Principal">
+        <a href="index.html">Inicio</a>
+        <a href="nosotros.html" aria-current="page">Nosotros</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="portafolio.html">Proyectos</a>
+        <a href="blog.html">Blog</a>
+        <a class="nav__cta" href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ==========================================================
+         PORTADA
+         ========================================================== -->
+    <section class="portada" aria-labelledby="titulo-portada">
+      <div class="contenedor portada__grid">
+
+        <div class="portada__texto">
+          <p class="migas"><a href="nosotros.html">Nosotros</a> <span aria-hidden="true">/</span> Fundador</p>
+          <p class="eyebrow">Arquitecto · Colegiado No. 401</p>
+          <h1 id="titulo-portada">Arq. Daniel Borja&nbsp;Rosales</h1>
+          <p class="portada__lead">
+            Cuatro décadas entre el aula y la obra. Formó a más de 1,500 arquitectos
+            en la Universidad Rafael Landívar y ha diseñado, coordinado y supervisado
+            proyectos hoteleros, hospitalarios, industriales y comerciales en Guatemala
+            y Centroamérica.
+          </p>
+
+          <div class="portada__acciones">
+            <a class="boton boton--primario" href="#lamina-04">Ver su obra</a>
+            <a class="boton boton--linea" href="https://www.linkedin.com/in/arqdanielborja/" target="_blank" rel="noopener">
+              Perfil en LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <dl class="cifras">
+            <div class="cifras__item">
+              <dt>Práctica profesional</dt>
+              <dd>1983</dd>
+            </div>
+            <div class="cifras__item">
+              <dt>Arquitectos formados</dt>
+              <dd>+1,500</dd>
+            </div>
+            <div class="cifras__item">
+              <dt>Años de trayectoria universitaria</dt>
+              <dd>+20</dd>
+            </div>
+          </dl>
+        </div>
+
+        <figure class="portada__retrato">
+          <img src="assets/img/fundador/daniel-borja-retrato.webp" width="568" height="709"
+               alt="Retrato del Arq. Daniel Borja con los brazos cruzados, vistiendo camisa de GRUBORJA">
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         TRES FECHAS CLAVE (diferencia persona / unidad / empresa)
+         ========================================================== -->
+    <section class="fechas" aria-labelledby="titulo-fechas">
+      <div class="contenedor">
+        <h2 id="titulo-fechas" class="fechas__titulo">Tres fechas que ordenan la historia</h2>
+        <ol class="fechas__lista">
+          <li class="fechas__item">
+            <span class="fechas__punto" aria-hidden="true"></span>
+            <span class="fechas__anio">1983</span>
+            <h3 class="fechas__nombre">Su propia oficina</h3>
+            <p>Abre el taller «Arquitecto Daniel Borja y colaboradores» e inicia su práctica independiente.</p>
+          </li>
+          <li class="fechas__item">
+            <span class="fechas__punto" aria-hidden="true"></span>
+            <span class="fechas__anio">1991</span>
+            <h3 class="fechas__nombre">Nace la metodología</h3>
+            <p>En unidad profesional con el Ing. Jaime Cáceres Knox diseña la metodología de servicios que la oficina aplica hasta hoy.</p>
+          </li>
+          <li class="fechas__item fechas__item--marca">
+            <span class="fechas__punto" aria-hidden="true"></span>
+            <span class="fechas__anio">2019</span>
+            <h3 class="fechas__nombre">Nace Grupo Borja</h3>
+            <p>Se integra la Ing. Lucía Borja y comienza la modernización de la firma.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         LÁMINAS (capítulos) + ÍNDICE LATERAL
+         ========================================================== -->
+    <div class="contenedor laminas">
+
+      <!-- Índice fijo en escritorio; se marca el capítulo visible con JS -->
+      <nav class="indice" aria-label="Capítulos de la trayectoria">
+        <p class="indice__titulo">Índice de láminas</p>
+        <ol>
+          <li><a href="#lamina-01"><span>01</span> Formación</a></li>
+          <li><a href="#lamina-02"><span>02</span> El académico</a></li>
+          <li><a href="#lamina-03"><span>03</span> La práctica</a></li>
+          <li><a href="#lamina-04"><span>04</span> Obra y clientes</a></li>
+          <li><a href="#lamina-05"><span>05</span> Servicio institucional</a></li>
+          <li><a href="#lamina-06"><span>06</span> El legado</a></li>
+        </ol>
+      </nav>
+
+      <div class="laminas__cuerpo">
+
+        <!-- ======================= LÁMINA 01 ======================= -->
+        <section id="lamina-01" class="lamina" aria-labelledby="t-01">
+          <header class="cajetin">
+            <span class="cajetin__celda"><small>Lámina</small>01 / 06</span>
+            <h2 id="t-01" class="cajetin__titulo">Formación</h2>
+            <span class="cajetin__celda"><small>Periodo</small>1962 – 1998</span>
+          </header>
+
+          <div class="lamina__grid">
+            <ol class="hitos">
+              <li class="hito">
+                <span class="hito__anio">1962 – 1974</span>
+                <div>
+                  <h3>Colegio La Preparatoria</h3>
+                  <p>Primaria, básico y diversificado en la Ciudad de Guatemala. Se gradúa de Bachiller en Ciencias y Letras.</p>
+                </div>
+              </li>
+              <li class="hito hito--premio">
+                <span class="hito__anio">1972 – 1974</span>
+                <div>
+                  <h3>Alumno abanderado</h3>
+                  <p>Distinción del Colegio La Preparatoria durante sus últimos tres años.</p>
+                </div>
+              </li>
+              <li class="hito">
+                <span class="hito__anio">1976 – 1982</span>
+                <div>
+                  <h3>Licenciatura en Arquitectura</h3>
+                  <p>Facultad de Arquitectura de la Universidad Rafael Landívar.</p>
+                </div>
+              </li>
+              <li class="hito hito--premio">
+                <span class="hito__anio">1982</span>
+                <div>
+                  <h3>Premio a la Mejor Tesis del Año</h3>
+                  <p>Otorgado por el Colegio de Arquitectos de Guatemala.</p>
+                </div>
+              </li>
+              <li class="hito">
+                <span class="hito__anio">1982 – 1998</span>
+                <div>
+                  <h3>Postgrado en Dirección y Administración Universitaria</h3>
+                  <p>Diversos cursos que acompañaron su carrera directiva en la URL.</p>
+                </div>
+              </li>
+            </ol>
+
+            <!-- REEMPLAZAR: fotografía de archivo (graduación 1982, La Preparatoria, etc.)
+                 Cambia este <div> por:
+                 <img src="assets/img/fundador/graduacion-1982.webp" width="800" height="1000" alt="..."> -->
+            <figure class="pendiente" aria-label="Espacio reservado para fotografía de archivo">
+              <div class="pendiente__lienzo" aria-hidden="true">
+                <span>Fotografía de archivo</span>
+              </div>
+              <figcaption>Graduación, Universidad Rafael Landívar · 1982</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- ======================= LÁMINA 02 ======================= -->
+        <section id="lamina-02" class="lamina" aria-labelledby="t-02">
+          <header class="cajetin">
+            <span class="cajetin__celda"><small>Lámina</small>02 / 06</span>
+            <h2 id="t-02" class="cajetin__titulo">El académico</h2>
+            <span class="cajetin__celda"><small>Periodo</small>1980 – 2000</span>
+          </header>
+
+          <div class="academico__apertura">
+            <blockquote class="cita">
+              <p>Consideró a la Facultad de Arquitectura su mejor obra.</p>
+            </blockquote>
+            <div class="dato-grande">
+              <span class="dato-grande__cifra">+1,500</span>
+              <span class="dato-grande__texto">arquitectos formados en veinte años de docencia en la URL</span>
+            </div>
+          </div>
+
+          <!-- Escalera de cargos: cada peldaño es un cargo directivo -->
+          <h3 class="subtitulo">Carrera directiva · Facultad de Arquitectura URL</h3>
+          <ol class="escalera">
+            <li class="escalera__peldano" style="--nivel: 1">
+              <span class="escalera__anio">1983 – 1987</span>
+              <strong>Secretario</strong>
+            </li>
+            <li class="escalera__peldano" style="--nivel: 2">
+              <span class="escalera__anio">1987 – 1990</span>
+              <strong>Vicedecano</strong>
+            </li>
+            <li class="escalera__peldano escalera__peldano--cima" style="--nivel: 3">
+              <span class="escalera__anio">1990 – 1998</span>
+              <strong>Decano</strong>
+            </li>
+          </ol>
+
+          <div class="destacado">
+            <p class="eyebrow">1987 – 1992</p>
+            <h3>Fundador del Diseño Industrial en Guatemala</h3>
+            <p>Fundó el Departamento de Diseño Industrial de la Universidad Rafael Landívar y fue su primer director. Abrió en el país una disciplina que hasta entonces no tenía formación universitaria propia.</p>
+          </div>
+
+          <div class="lamina__grid lamina__grid--parejo">
+            <div>
+              <h3 class="subtitulo">Cátedras en Arquitectura · 1980 – 2000</h3>
+              <ul class="etiquetas">
+                <li>Matemática</li>
+                <li>Física</li>
+                <li>Criterio estructural</li>
+                <li>Estática</li>
+                <li>Resistencia de materiales</li>
+                <li>Mecanismos</li>
+                <li>Análisis y diseño estructural</li>
+                <li>Composición arquitectónica</li>
+                <li>Diseño industrial</li>
+                <li>Métodos de investigación</li>
+              </ul>
+              <h3 class="subtitulo">Cátedras en Humanidades · 1982 – 1985</h3>
+              <ul class="etiquetas">
+                <li>Identidad cultural</li>
+                <li>Folklore y costumbres guatemaltecas</li>
+              </ul>
+            </div>
+
+            <ul class="registro">
+              <li>
+                <span class="registro__anio">1982 – 1984</span>
+                <p>Fundador y primer secretario de la Asociación de Egresados de la URL.</p>
+              </li>
+              <li>
+                <span class="registro__anio">URL – INGUAT</span>
+                <p>Director-coordinador de los estudios para el desarrollo de infraestructura turística de la Costa Atlántica de Guatemala y del sistema nacional de ecocampamentos.</p>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ======================= LÁMINA 03 ======================= -->
+        <section id="lamina-03" class="lamina" aria-labelledby="t-03">
+          <header class="cajetin">
+            <span class="cajetin__celda"><small>Lámina</small>03 / 06</span>
+            <h2 id="t-03" class="cajetin__titulo">La práctica</h2>
+            <span class="cajetin__celda"><small>Periodo</small>1983 – 1991</span>
+          </header>
+
+          <p class="lamina__intro">
+            Mientras enseñaba estática y resistencia de materiales, abrió su taller y llevó
+            ese rigor estructural a cada proyecto. De ahí viene la forma de trabajar que
+            distingue a la firma: arquitectura pensada con criterio de ingeniería.
+          </p>
+
+          <div class="lamina__grid">
+            <ol class="hitos">
+              <li class="hito">
+                <span class="hito__anio">1983</span>
+                <div>
+                  <h3>Taller de Arquitectura y Proyectos</h3>
+                  <p>Funda la oficina «Arquitecto Daniel Borja y colaboradores»: proyectación arquitectónica, sistemas estructurales y constructivos, coordinación de proyectos y consultoría.</p>
+                </div>
+              </li>
+              <li class="hito hito--premio">
+                <span class="hito__anio">1990</span>
+                <div>
+                  <h3>Premio Lámina de Oro</h3>
+                  <p>Asociación Latinoamericana del Fibrocemento, al mejor proyecto desarrollado con láminas de fibrocemento.</p>
+                </div>
+              </li>
+              <li class="hito hito--premio">
+                <span class="hito__anio">1991</span>
+                <div>
+                  <h3>Premio Nacional Opus de Arquitectura</h3>
+                  <p>Rama de Conservación del Patrimonio Cultural y Natural, por el Hotel Villa Maya en Petén.</p>
+                </div>
+              </li>
+              <li class="hito">
+                <span class="hito__anio">1991</span>
+                <div>
+                  <h3>Unidad profesional y metodología de servicios</h3>
+                  <p>Junto al Ing. Jaime Cáceres Knox forma una unidad de desarrollo y consultoría. De ahí nace la metodología que la oficina sigue hasta hoy:</p>
+                  <ol class="metodo">
+                    <li>Separación de cada diseño por especialidad</li>
+                    <li>Cotización de cada diseño con tres proveedores</li>
+                    <li>Selección de las mejores empresas y profesionales</li>
+                    <li>Cotización de la construcción con la planimetría</li>
+                    <li>Dirección y supervisión de obra</li>
+                    <li>Control de la metodología en cada etapa</li>
+                  </ol>
+                  <a class="enlace-flecha" href="servicios.html">Ver cómo trabajamos hoy <span aria-hidden="true">→</span></a>
+                </div>
+              </li>
+            </ol>
+
+            <figure class="foto">
+              <img src="assets/img/fundador/villa-maya.webp" width="1200" height="900" loading="lazy"
+                   alt="Hotel Villa Maya en Petén: cabañas de madera entre vegetación tropical">
+              <figcaption><span>Hotel Villa Maya · Petén</span><span>Premio Opus 1991</span></figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- ======================= LÁMINA 04 ======================= -->
+        <section id="lamina-04" class="lamina" aria-labelledby="t-04">
+          <header class="cajetin">
+            <span class="cajetin__celda"><small>Lámina</small>04 / 06</span>
+            <h2 id="t-04" class="cajetin__titulo">Obra y clientes</h2>
+            <span class="cajetin__celda"><small>Periodo</small>1991 – hoy</span>
+          </header>
+
+          <p class="lamina__intro">
+            Planificación, coordinación y supervisión de proyectos de vivienda,
+            comercio, industria, hotelería y salud en Guatemala y Centroamérica.
+          </p>
+
+          <!-- ======================================================
+               MURO DE MARCAS · "Han confiado en su trabajo"
+               Por ahora cada casilla muestra el nombre en texto.
+               Cuando tengas la autorización y el logo, cambia el <span> por:
+               <img src="assets/logos/nombre.svg" alt="Nombre de la marca">
+               Para quitar o agregar marcas, borra o copia un <li>.
+               ====================================================== -->
+          <div class="marcas">
+            <h3 class="subtitulo">Han confiado en su trabajo</h3>
+            <ul class="marcas__muro">
+              <li class="marca"><span>Villas de Guatemala</span></li>
+              <li class="marca"><span>Hospital Centro Médico</span></li>
+              <li class="marca"><span>UNOP</span></li>
+              <li class="marca"><span>Licorera Quetzalteca</span></li>
+              <li class="marca"><span>Casa Botrán</span></li>
+              <li class="marca"><span>Agroindustrias HAME</span></li>
+              <li class="marca"><span>Inmobiliaria El Globo</span></li>
+              <li class="marca"><span>Grupo Los Tres</span></li>
+              <li class="marca"><span>Hotel Quinta Real</span></li>
+              <li class="marca"><span>Supermercados SUMA</span></li>
+              <li class="marca"><span>Colegio Liceo Javier</span></li>
+              <li class="marca"><span>Hoteles G6</span></li>
+            </ul>
+          </div>
+
+          <!-- ======================================================
+               OBRA POR SECTOR
+               Índice ligero: una foto por sector y la lista de obras.
+               Cada fila lleva al portafolio (portafolio.html#sector).
+               ====================================================== -->
+          <h3 class="subtitulo">Obra por sector</h3>
+          <ul class="sectores">
+            <li class="sector">
+              <img class="sector__foto" src="assets/img/fundador/vista-real.webp" width="1200" height="900" loading="lazy" alt="Hotel Vista Real al atardecer">
+              <div class="sector__cabeza">
+                <h4 class="sector__nombre">Hotelero</h4>
+                <span class="sector__conteo">7 obras</span>
+              </div>
+              <ul class="sector__obras">
+                  <li>Hotel Villa Maya, Petén</li>
+                  <li>Hotel Quinta Real (hoy Vista Real)</li>
+                  <li>Villa Santa Catarina</li>
+                  <li>Santa Catarina Palopó</li>
+                  <li>Villa Petenchel</li>
+                  <li>Villa Grande Chichicastenango</li>
+                  <li>Consultoría Hoteles G6, Campeche</li>
+              </ul>
+              <a class="sector__enlace" href="portafolio.html#hotelero" aria-label="Ver obras del sector hotelero en el portafolio">Ver en portafolio <span aria-hidden="true">→</span></a>
+            </li>
+            <li class="sector">
+              <img class="sector__foto" src="assets/img/fundador/centro-medico.webp" width="1200" height="900" loading="lazy" alt="Torre del Hospital Centro Médico">
+              <div class="sector__cabeza">
+                <h4 class="sector__nombre">Hospitalario</h4>
+                <span class="sector__conteo">3 obras</span>
+              </div>
+              <ul class="sector__obras">
+                  <li>Hospital Centro Médico, zona 10</li>
+                  <li>UNOP · Hospital de Niños con Cáncer</li>
+                  <li>Hospital Yarden, zona 7</li>
+              </ul>
+              <a class="sector__enlace" href="portafolio.html#hospitalario" aria-label="Ver obras del sector hospitalario en el portafolio">Ver en portafolio <span aria-hidden="true">→</span></a>
+            </li>
+            <li class="sector">
+              <img class="sector__foto" src="assets/img/fundador/casa-de-las-nubes.webp" width="1200" height="900" loading="lazy" alt="Naves de añejamiento de Casa de las Nubes">
+              <div class="sector__cabeza">
+                <h4 class="sector__nombre">Industrial</h4>
+                <span class="sector__conteo">2 obras</span>
+              </div>
+              <ul class="sector__obras">
+                  <li>Casa de las Nubes · Ron Zacapa</li>
+                  <li>Casa Botrán, centro de mezclas y añejamiento</li>
+              </ul>
+              <a class="sector__enlace" href="portafolio.html#industrial" aria-label="Ver obras del sector industrial en el portafolio">Ver en portafolio <span aria-hidden="true">→</span></a>
+            </li>
+            <li class="sector">
+              <img class="sector__foto" src="assets/img/fundador/edificio-hame.webp" width="1200" height="900" loading="lazy" alt="Edificio corporativo HAME">
+              <div class="sector__cabeza">
+                <h4 class="sector__nombre">Corporativo</h4>
+                <span class="sector__conteo">3 obras</span>
+              </div>
+              <ul class="sector__obras">
+                  <li>Edificio HAME</li>
+                  <li>Edificio El Globo, 15 niveles</li>
+                  <li>Edificio VIYA, Oakland</li>
+              </ul>
+              <a class="sector__enlace" href="portafolio.html#corporativo" aria-label="Ver obras del sector corporativo en el portafolio">Ver en portafolio <span aria-hidden="true">→</span></a>
+            </li>
+            <li class="sector">
+              <img class="sector__foto" src="assets/img/fundador/las-puertas.webp" width="1200" height="900" loading="lazy" alt="Centro comercial Las Puertas">
+              <div class="sector__cabeza">
+                <h4 class="sector__nombre">Comercial</h4>
+                <span class="sector__conteo">8 obras</span>
+              </div>
+              <ul class="sector__obras">
+                  <li>Centro Comercial Las Puertas</li>
+                  <li>Ferretería y Plaza El Globo</li>
+                  <li>Grupo Los Tres · Porsche y Volvo</li>
+                  <li>Supermercados SUMA</li>
+                  <li>Multimayoreo</li>
+                  <li>Mi Super Fresh, Marinico y Pinula</li>
+                  <li>C.C. Santa María, Quetzaltenango</li>
+                  <li>C.C. Santa Bárbara, Sacatepéquez</li>
+              </ul>
+              <a class="sector__enlace" href="portafolio.html#comercial" aria-label="Ver obras del sector comercial en el portafolio">Ver en portafolio <span aria-hidden="true">→</span></a>
+            </li>
+            <li class="sector">
+              <img class="sector__foto" src="assets/img/fundador/liceo-javier.webp" width="1200" height="900" loading="lazy" alt="Colegio Liceo Javier">
+              <div class="sector__cabeza">
+                <h4 class="sector__nombre">Educativo</h4>
+                <span class="sector__conteo">2 obras</span>
+              </div>
+              <ul class="sector__obras">
+                  <li>Colegio Liceo Javier</li>
+                  <li>Colegio Príncipe de Asturias</li>
+              </ul>
+              <a class="sector__enlace" href="portafolio.html#educativo" aria-label="Ver obras del sector educativo en el portafolio">Ver en portafolio <span aria-hidden="true">→</span></a>
+            </li>
+          </ul>
+
+          <p class="nota-obra">
+            También: residencias, edificios, condominios e interiorismo para comercios y oficinas.
+            <span class="nota-obra__mencion">Menciones honoríficas, Concurso de Obras de Cementos Progreso · 2000 y 2002.</span>
+          </p>
+
+          <!-- Puente al portafolio completo -->
+          <div class="al-portafolio">
+            <p>Conoce cada proyecto a detalle, con fotografías y datos técnicos, en el portafolio.</p>
+            <a class="boton boton--primario" href="portafolio.html">Ver portafolio completo <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
+
+        <!-- ======================= LÁMINA 05 ======================= -->
+        <section id="lamina-05" class="lamina" aria-labelledby="t-05">
+          <header class="cajetin">
+            <span class="cajetin__celda"><small>Lámina</small>05 / 06</span>
+            <h2 id="t-05" class="cajetin__titulo">Servicio institucional</h2>
+            <span class="cajetin__celda"><small>Periodo</small>1984 – 2011</span>
+          </header>
+
+          <div class="lamina__grid lamina__grid--parejo">
+            <div>
+              <h3 class="subtitulo">Colegio de Arquitectos de Guatemala</h3>
+              <ul class="registro">
+                <li>
+                  <span class="registro__anio">1984</span>
+                  <p>Vocal I de Junta Directiva.</p>
+                </li>
+                <li>
+                  <span class="registro__anio">2009 – 2011</span>
+                  <p>Vicepresidente del Tribunal de Honor.</p>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="subtitulo">Tribunal Supremo Electoral</h3>
+              <ul class="registro">
+                <li>
+                  <span class="registro__anio">1986 – 1998</span>
+                  <p>Asesor y consultor en diversos proyectos, en representación de la Universidad Rafael Landívar.</p>
+                </li>
+                <li>
+                  <span class="registro__anio">1999</span>
+                  <p>Vocal de la Junta Electoral del Departamento de Guatemala y coordinador de infraestructura y montajes del Centro de Información.</p>
+                </li>
+                <li>
+                  <span class="registro__anio">2003</span>
+                  <p>Coordinador General del Centro de Información, Elecciones Generales.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- ==========================================================
+         LÁMINA 06 · EL LEGADO (ancho completo, fondo oscuro)
+         ========================================================== -->
+    <section id="lamina-06" class="lamina legado" aria-labelledby="t-06">
+      <div class="contenedor">
+        <header class="cajetin cajetin--claro">
+          <span class="cajetin__celda"><small>Lámina</small>06 / 06</span>
+          <h2 id="t-06" class="cajetin__titulo">El legado continúa</h2>
+          <span class="cajetin__celda"><small>Desde</small>2019</span>
+        </header>
+
+        <div class="legado__grid">
+          <div class="legado__texto">
+            <p class="legado__lead">
+              En 2019 nace Grupo Borja. La Ing. Lucía Borja se integra a la firma y la
+              experiencia de cuatro décadas se une con la ingeniería y las nuevas
+              herramientas de gestión.
+            </p>
+            <p>
+              El criterio con que el Arq. Borja enseñaba estructuras y dirigía obras
+              es hoy el estándar del equipo: arquitectura con precisión técnica y
+              entregas que cumplen lo prometido.
+            </p>
+            <div class="portada__acciones">
+              <a class="boton boton--blanco" href="nosotros.html">Conocer al equipo</a>
+              <a class="boton boton--linea-claro" href="servicios.html">Ver servicios</a>
+            </div>
+          </div>
+
+          <ul class="duo">
+            <li class="duo__persona">
+              <img src="assets/img/fundador/daniel-borja-retrato.webp" width="568" height="709" loading="lazy" alt="Arq. Daniel Borja">
+              <p class="duo__nombre">Arq. Daniel Borja</p>
+              <p class="duo__cargo">Fundador · Visión arquitectónica</p>
+              <a href="https://www.linkedin.com/in/arqdanielborja/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            </li>
+            <li class="duo__persona">
+              <img src="assets/img/fundador/lucia-borja-retrato.webp" width="568" height="709" loading="lazy" alt="Ing. Lucía Borja">
+              <p class="duo__nombre">Ing. Lucía Borja</p>
+              <p class="duo__cargo">Gerencia · Excelencia en ingeniería</p>
+              <a href="https://www.linkedin.com/in/luciaborja/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================
+       PIE DE PÁGINA
+       ========================================================== -->
+  <footer class="pie">
+    <div class="contenedor pie__grid">
+      <div>
+        <p class="pie__marca">GRUBORJA</p>
+        <p>Trayectoria desde 1983 · Grupo Borja desde 2019.</p>
+      </div>
+      <div>
+        <p class="pie__titulo">Explorar</p>
+        <a href="portafolio.html">Proyectos</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="nosotros.html">Nosotros</a>
+      </div>
+      <div>
+        <p class="pie__titulo">Contacto</p>
+        <a href="contacto.html">Contacto técnico</a>
+        <a href="https://www.linkedin.com/in/arqdanielborja/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div>
+        <p class="pie__titulo">Ubicación</p>
+        <p>3a. Calle No. 3-54 Zona 1, Centro Histórico, Guatemala</p>
+      </div>
+    </div>
+    <div class="contenedor pie__base">
+      <p>© <span id="anio-actual">2026</span> Grupo Borja. Infraestructura con visión de futuro.</p>
+    </div>
+  </footer>
+
+  <script src="js/fundador.js" defer></script>
+</body>
+</html>

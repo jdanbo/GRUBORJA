@@ -27,12 +27,15 @@ gruborja/
     ├── logos/            Logo horizontal a color y en blanco, símbolo y favicon
     └── img/
         ├── sitio/        Fotos de los hero y de las secciones
-        └── proyectos/    <id>-1.webp, <id>-2.webp, …
+        ├── proyectos/    Una carpeta por proyecto: <id>/<id>-1.webp, <id>-2.webp, …
+        ├── equipo/       Retratos del equipo (Nosotros y página del fundador)
+        └── marca/        Logos oficiales (banner horizontal y versiones verticales)
 ```
 
 ## Tareas frecuentes
 
-**Agregar un proyecto:** copia sus fotos en `assets/img/proyectos/` con el nombre `<id>-1.webp`, `<id>-2.webp`, etc.
+**Agregar un proyecto:** crea la carpeta `assets/img/proyectos/<id>/` y copia ahí sus fotos con el nombre `<id>-1.webp`, `<id>-2.webp`, etc.
+Para reemplazar una foto por otra de mayor calidad, guárdala con el mismo nombre en su carpeta.
 Luego duplica un bloque en `data/proyectos.js` y cambia los datos.
 Con `destacado: true` el proyecto aparece también en el Inicio (máximo 3).
 

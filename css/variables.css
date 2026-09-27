@@ -26,7 +26,7 @@
   --color-focus: #B26BD1;         /* Anillo de foco visible (accesibilidad) */
 
   /* ---------- Tipografía ---------- */
-  --font-base: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-base: "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Escala tipográfica fluida: crece con el ancho de pantalla */
   --fs-xs: 0.75rem;                                   /* 12px  etiquetas   */

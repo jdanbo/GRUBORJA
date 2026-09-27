@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros | GRUBORJA — Arquitectura de visión, ingeniería de precisión</title>
+  <meta name="description" content="Más de 40 años integrando diseño arquitectónico e ingeniería de precisión en Guatemala. Conoce la historia, los principios y el equipo de GRUBORJA.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nosotros | GRUBORJA">
+  <meta property="og:description" content="+40 años diseñando el progreso. Arquitectura e ingeniería integradas.">
+  <meta property="og:image" content="assets/img/sitio/og-imagen.jpg">
+  <meta property="og:locale" content="es_GT">
+  <meta name="theme-color" content="#0D1330">
+
+  <link rel="icon" type="image/png" href="assets/logos/favicon.png">
+  <link rel="apple-touch-icon" href="assets/logos/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Foto del hero: cámbiala por una de armazón estructural / planos / supervisión -->
+  <link rel="preload" as="image" href="assets/img/sitio/hero-nosotros.webp">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/paginas.css">
+  <link rel="stylesheet" href="css/nosotros.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__logo" href="index.html" aria-label="GRUBORJA — Inicio">
+        <img src="assets/img/marca/gruborja-banner-color.png" alt="GRUBORJA" width="684" height="120">
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+      </button>
+
+      <nav class="main-nav" id="menu-principal" aria-label="Navegación principal">
+        <ul class="main-nav__list" role="list">
+          <li><a class="main-nav__link" href="index.html">Inicio</a></li>
+          <li><a class="main-nav__link" href="nosotros.html" aria-current="page">Nosotros</a></li>
+          <li><a class="main-nav__link" href="servicios.html">Servicios</a></li>
+          <li><a class="main-nav__link" href="portafolio.html">Portafolio</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm" href="mailto:infogrupoborja@gmail.com?subject=Solicitud%20de%20asesor%C3%ADa%20t%C3%A9cnica">Contáctanos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- =====================================================
+         ACTO 1 · LA PROMESA (Hero a pantalla completa)
+         ===================================================== -->
+    <section class="hero hero--full nos-hero" aria-labelledby="hero-titulo">
+      <div class="hero__media">
+        <img src="assets/img/sitio/hero-nosotros.webp" alt="" fetchpriority="high"
+             onerror="this.onerror=null;this.src='assets/img/sitio/compromiso.webp'">
+      </div>
+      <div class="container">
+        <div class="hero__content">
+          <p class="hero__tag">GRUBORJA · Desde 1983</p>
+          <h1 class="hero__title" id="hero-titulo">Arquitectura de visión. <em>Ingeniería de precisión.</em></h1>
+          <p class="hero__text">
+            Integramos el diseño arquitectónico con la ingeniería más avanzada para garantizar una
+            supervisión técnica impecable en cada etapa de su proyecto.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="mailto:infogrupoborja@gmail.com?subject=Solicitud%20de%20asesor%C3%ADa%20t%C3%A9cnica">
+              Solicitar asesoría técnica
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn--outline nos-hero__down" href="#historia">
+              Descubre nuestra historia
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a class="hero__scroll" href="#historia" aria-hidden="true" tabindex="-1">
+        <span class="hero__scroll-line"></span> Desliza
+      </a>
+    </section>
+
+    <!-- =====================================================
+         ACTO 2 · EL ORIGEN Y EL LEGADO
+         ===================================================== -->
+    <section class="section section--white nos-legado" id="historia" aria-labelledby="legado-titulo">
+      <div class="container nos-legado__grid">
+
+        <figure class="nos-legado__foto reveal">
+          <div class="nos-legado__marco" data-parallax>
+            <!-- Foto histórica del equipo original (blanco y negro).
+                 Guárdala como assets/img/equipo/equipo-original.webp -->
+            <img src="assets/img/equipo/equipo-original.webp"
+                 alt="Equipo original de la firma del Arq. Daniel Borja"
+                 loading="lazy" width="900" height="1100"
+                 onerror="this.onerror=null;this.src='assets/img/equipo/daniel-borja.webp'">
+          </div>
+          <figcaption class="nos-legado__caption">Los inicios de la práctica · Ciudad de Guatemala</figcaption>
+        </figure>
+
+        <div class="nos-legado__texto reveal">
+          <span class="eyebrow">El origen</span>
+          <h2 class="section-title" id="legado-titulo">+40 años diseñando el progreso</h2>
+          <p class="nos-legado__lead">
+            Todo gran proyecto comienza con una base sólida.
+          </p>
+          <p>
+            Hace más de cuatro décadas, el Arq. Daniel Borja sentó los cimientos de una práctica
+            arquitectónica fundamentada en el rigor, la estética y la viabilidad técnica,
+            transformando la infraestructura a nivel nacional.
+          </p>
+
+          <dl class="nos-hitos">
+            <div class="nos-hito">
+              <dt>Fundación</dt>
+              <dd>1983</dd>
+            </div>
+            <div class="nos-hito">
+              <dt>Trayectoria</dt>
+              <dd>+40 años</dd>
+            </div>
+            <div class="nos-hito">
+              <dt>Alcance</dt>
+              <dd>Guatemala y Centroamérica</dd>
+            </div>
+          </dl>
+
+          <a class="link-arrow" href="codbr.html">
+            Explorar la trayectoria del Arq. Daniel Borja
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================
+         ACTO 3 · EL PUNTO DE INFLEXIÓN (Evolución + valores)
+         El isotipo se "dibuja" con el scroll (ver js/nosotros.js)
+         ===================================================== -->
+    <section class="section section--alt nos-evolucion" aria-labelledby="evolucion-titulo">
+      <div class="container">
+
+        <div class="nos-logo" data-logo-draw>
+          <svg class="nos-logo__svg" viewBox="380 180 1240 880" role="img" aria-labelledby="logo-desc">
+            <title id="logo-desc">Isotipo GRUBORJA: la G y la B unidas por el punto de convergencia</title>
+            <!-- G / B: contorno exterior -->
+            <path class="nos-logo__trazo" pathLength="1"
+                  d="M655 553 H1345 A231 231 0 0 1 1345 1015 H655 A231 231 0 0 1 655 553 Z"/>
+            <!-- P: línea superior, curva y bajada -->
+            <path class="nos-logo__trazo nos-logo__trazo--2" pathLength="1"
+                  d="M860 320 H1345 A230.5 230.5 0 0 1 1345 781 H826 V1015"/>
+            <!-- Punto de convergencia -->
+            <circle class="nos-logo__punto" cx="715" cy="320" r="69.5"/>
+          </svg>
+          <p class="nos-logo__marca" aria-hidden="true">GRUBORJA</p>
+          <ul class="nos-logo__leyenda" role="list" aria-label="Significado del isotipo">
+            <li><span class="nos-logo__dot"></span>Punto de convergencia</li>
+            <li>G · Grupo</li>
+            <li>B · Borja</li>
+          </ul>
+        </div>
+
+        <div class="section-head section-head--center nos-evolucion__head reveal">
+          <span class="eyebrow">La evolución</span>
+          <h2 class="section-title" id="evolucion-titulo">Arquitectura e ingeniería integradas</h2>
+          <p class="section-lead">
+            La complejidad de los desafíos modernos requiere respuestas multidisciplinarias.
+            Evolucionamos para aplicar la ingeniería más estricta a la arquitectura vanguardista.
+          </p>
+          <p class="nos-evolucion__quote">
+            No ejecutamos la obra física: <strong>somos los guardianes de la precisión</strong>,
+            supervisando técnicamente que cada milímetro diseñado se cumpla en la realidad.
+          </p>
+        </div>
+
+        <h3 class="nos-principios__titulo">Principios de estructura</h3>
+        <ul class="nos-principios" role="list">
+          <li class="nos-principio reveal">
+            <span class="nos-principio__num">01</span>
+            <svg class="nos-principio__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V6l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+            <h4 class="nos-principio__nombre">Integridad</h4>
+            <p>Decisiones técnicas transparentes y honestas. Lo que firmamos, lo respaldamos.</p>
+          </li>
+          <li class="nos-principio reveal">
+            <span class="nos-principio__num">02</span>
+            <svg class="nos-principio__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5M10.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5"/></svg>
+            <h4 class="nos-principio__nombre">Colaboración</h4>
+            <p>Arquitectura, ingeniería y cliente en una sola mesa de trabajo, de la idea a la entrega.</p>
+          </li>
+          <li class="nos-principio reveal">
+            <span class="nos-principio__num">03</span>
+            <svg class="nos-principio__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 20 10 8l4 6 3-4 3 10"/><circle cx="17" cy="5" r="1.8"/></svg>
+            <h4 class="nos-principio__nombre">Motivación</h4>
+            <p>Cada proyecto es una oportunidad de superar el estándar y aprender de él.</p>
+          </li>
+          <li class="nos-principio reveal">
+            <span class="nos-principio__num">04</span>
+            <svg class="nos-principio__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="3.5" width="16" height="17"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+            <h4 class="nos-principio__nombre">Responsabilidad</h4>
+            <p>Respondemos por la seguridad de las personas y por la inversión de nuestros clientes.</p>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- =====================================================
+         ACTO 4 · EL PRESENTE (Equipo + modales)
+         Para agregar a alguien: duplica un <li class="miembro">
+         y un <dialog class="perfil">, y cambia los id.
+         ===================================================== -->
+    <section class="section nos-equipo" aria-labelledby="equipo-titulo">
+      <div class="container">
+        <div class="nos-staff__head reveal">
+          <div>
+            <span class="eyebrow">El presente</span>
+            <h2 class="section-title" id="equipo-titulo">Nuestra unidad profesional</h2>
+          </div>
+          <p class="section-lead">
+            Somos una unidad integrada por arquitectos, ingenieros y diseñadores que trabajan juntos,
+            en la misma oficina, todos los días. Aquí cada proyecto se discute en una sola mesa:
+            así el diseño y la técnica avanzan al mismo ritmo.
+          </p>
+        </div>
+
+        <figure class="nos-staff reveal">
+          <img src="assets/img/equipo/staff.webp" width="2000" height="1168" loading="lazy"
+               alt="Equipo de GRUBORJA: arquitectos, ingenieros y diseñadores en la oficina">
+          <figcaption class="nos-staff__caption">
+            <span class="nos-staff__lema">Un solo equipo, un mismo estándar.</span>
+            <span>Oficina central · Zona 1, Ciudad de Guatemala</span>
+          </figcaption>
+        </figure>
+
+        <ul class="nos-disciplinas" role="list" aria-label="Disciplinas del equipo">
+          <li class="nos-disciplina reveal">
+            <h3>Arquitectos</h3>
+            <p>Proyectan con visión: concepto, planos y diseño de cada espacio.</p>
+          </li>
+          <li class="nos-disciplina reveal">
+            <h3>Ingenieros</h3>
+            <p>Calculan, verifican y supervisan que cada estructura sea segura.</p>
+          </li>
+          <li class="nos-disciplina reveal">
+            <h3>Diseñadores</h3>
+            <p>Modelado, renders y detalle para que el cliente vea su proyecto antes de construirlo.</p>
+          </li>
+          <li class="nos-disciplina reveal">
+            <h3>Comunidad</h3>
+            <p>Compartimos oficina, conocimiento y compromiso: nadie trabaja un proyecto solo.</p>
+          </li>
+        </ul>
+
+        <div class="nos-liderazgo__head reveal">
+          <span class="eyebrow">Liderazgo</span>
+          <h3 class="nos-liderazgo__titulo">Experiencia histórica con metodologías de vanguardia</h3>
+        </div>
+
+        <ul class="nos-equipo__grid" role="list">
+          <li class="miembro reveal">
+            <button class="miembro__btn" type="button" data-perfil="perfil-daniel" aria-haspopup="dialog">
+              <span class="miembro__foto">
+                <img src="assets/img/equipo/daniel-borja.webp" alt="" loading="lazy" width="600" height="750">
+                <span class="miembro__mas" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+                </span>
+              </span>
+              <span class="miembro__info">
+                <span class="miembro__nombre">Arq. Daniel Borja</span>
+                <span class="miembro__cargo">Fundador · Director General</span>
+                <span class="miembro__ver">Ver perfil</span>
+              </span>
+            </button>
+          </li>
+
+          <li class="miembro reveal">
+            <button class="miembro__btn" type="button" data-perfil="perfil-lucia" aria-haspopup="dialog">
+              <span class="miembro__foto">
+                <img src="assets/img/equipo/lucia-borja.webp" alt="" loading="lazy" width="600" height="750">
+                <span class="miembro__mas" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+                </span>
+              </span>
+              <span class="miembro__info">
+                <span class="miembro__nombre">Ing. Lucía Borja</span>
+                <span class="miembro__cargo">Dirección de Ingeniería y Supervisión Técnica</span>
+                <span class="miembro__ver">Ver perfil</span>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ----- Modal: Arq. Daniel Borja ----- -->
+    <dialog class="perfil" id="perfil-daniel" aria-labelledby="perfil-daniel-nombre">
+      <button class="perfil__cerrar" type="button" data-cerrar aria-label="Cerrar perfil">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <div class="perfil__foto">
+        <img src="assets/img/equipo/daniel-borja.webp" alt="Arq. Daniel Borja" loading="lazy">
+      </div>
+      <div class="perfil__cuerpo">
+        <span class="eyebrow">Fundador</span>
+        <h3 class="perfil__nombre" id="perfil-daniel-nombre">Arq. Daniel Borja</h3>
+        <p class="perfil__cargo">Director General</p>
+        <p class="perfil__bio">
+          Más de cuatro décadas proyectando arquitectura con rigor técnico. Define la visión de diseño
+          de cada proyecto y garantiza su viabilidad desde el primer trazo.
+        </p>
+        <ul class="perfil__tags" role="list" aria-label="Especialidades">
+          <li>Proyección arquitectónica</li>
+          <li>Planificación maestra</li>
+          <li>Consultoría</li>
+        </ul>
+        <div class="perfil__acciones">
+          <a class="btn btn--primary btn--sm" href="codbr.html">Ver trayectoria completa</a>
+          <a class="perfil__linkedin" href="https://www.linkedin.com/in/arqdanielborja/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3V9.5Zm6.5 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4V9.5Z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- ----- Modal: Ing. Lucía Borja ----- -->
+    <dialog class="perfil" id="perfil-lucia" aria-labelledby="perfil-lucia-nombre">
+      <button class="perfil__cerrar" type="button" data-cerrar aria-label="Cerrar perfil">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <div class="perfil__foto">
+        <img src="assets/img/equipo/lucia-borja.webp" alt="Ing. Lucía Borja" loading="lazy">
+      </div>
+      <div class="perfil__cuerpo">
+        <span class="eyebrow">Ingeniería</span>
+        <h3 class="perfil__nombre" id="perfil-lucia-nombre">Ing. Lucía Borja</h3>
+        <p class="perfil__cargo">Dirección de Ingeniería y Supervisión Técnica</p>
+        <p class="perfil__bio">
+          Asegurando la integridad estructural de diseños complejos mediante auditorías de proyectos
+          y optimización de recursos.
+        </p>
+        <ul class="perfil__tags" role="list" aria-label="Especialidades">
+          <li>Cálculo estructural</li>
+          <li>Supervisión de obra</li>
+          <li>Gestión de infraestructura</li>
+        </ul>
+        <div class="perfil__acciones">
+          <!-- PENDIENTE: pega aquí el enlace real de LinkedIn de Lucía -->
+          <a class="perfil__linkedin" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3V9.5Zm6.5 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4V9.5Z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- =====================================================
+         ACTO 5 · LA INVITACIÓN (CTA final)
+         ===================================================== -->
+    <section class="cta-band" aria-labelledby="cta-titulo">
+      <div class="container reveal">
+        <h2 class="cta-band__title" id="cta-titulo">¿Listo para estructurar el éxito de su inversión?</h2>
+        <p class="cta-band__text">Inicie una conversación técnica con nuestro equipo multidisciplinario.</p>
+        <div class="cta-band__actions">
+          <a class="btn btn--invert nos-cta__btn" href="mailto:infogrupoborja@gmail.com?subject=Agendar%20consulta%20t%C3%A9cnica">
+            Agendar consulta técnica
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--outline" href="tel:+50222204814">Llamar: (+502) 2220 4814</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div class="site-footer__brand">
+        <img class="site-footer__logo" src="assets/img/marca/gruborja-banner-blanco.png" alt="GRUBORJA" width="683" height="120">
+        <p>Proyección arquitectónica, sistemas estructurales y gestión de proyectos de infraestructura en Guatemala y Centroamérica desde 1983.</p>
+      </div>
+
+      <nav aria-label="Navegación del pie de página">
+        <h2 class="site-footer__title">Navegación</h2>
+        <ul class="site-footer__list" role="list">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="portafolio.html">Portafolio</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="site-footer__title">Sede central</h2>
+        <ul class="site-footer__list" role="list">
+          <li>
+            <a href="tel:+50222204814">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+              (+502) 2220 4814
+            </a>
+          </li>
+          <li>
+            <a href="mailto:infogrupoborja@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="m3 6 9 7 9-7"/></svg>
+              infogrupoborja@gmail.com
+            </a>
+          </li>
+        </ul>
+        <address class="site-footer__address">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <span>3a. Calle No. 3-54, Zona 1, Centro Histórico, Ciudad de Guatemala</span>
+        </address>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <div class="container">© <span data-year>2026</span> Grupo Borja. Infraestructura con visión de futuro.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/nosotros.js"></script>
+</body>
+</html>

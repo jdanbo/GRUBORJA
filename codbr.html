@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,14 +13,21 @@
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Arq. Daniel Borja Rosales | Trayectoria">
   <meta property="og:description" content="Exdecano de Arquitectura URL, formador de más de 1,500 arquitectos y más de 40 años de obra en Guatemala y Centroamérica.">
-  <meta property="og:image" content="https://gruborja.com/assets/img/fundador/daniel-borja-retrato.webp">
+  <meta property="og:image" content="assets/img/equipo/daniel-borja.webp">
   <meta property="og:url" content="https://gruborja.com/codbr.html">
 
   <!-- Tipografía de marca: Work Sans (la misma del logo y de los documentos GRUBORJA) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
 
+  <link rel="icon" type="image/png" href="assets/logos/favicon.png">
+  <link rel="apple-touch-icon" href="assets/logos/favicon.png">
+
+  <!-- Estilos compartidos del sitio + estilos propios de esta página -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
   <link rel="stylesheet" href="css/fundador.css">
 
   <!-- Datos estructurados: ayudan a Google a entender quién es el Arq. Borja -->
@@ -48,29 +55,29 @@
 </head>
 <body>
 
-  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <!-- ==========================================================
-       NAVEGACIÓN (misma estructura que el resto del sitio)
-       ========================================================== -->
-  <header class="nav">
-    <div class="nav__interior">
-      <a class="nav__logo" href="index.html" aria-label="GRUBORJA, inicio">
-        <span class="nav__punto" aria-hidden="true"></span>GRUBORJA
+  <!-- HEADER FIJO (igual en todas las páginas) -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__logo" href="index.html" aria-label="GRUBORJA — Inicio">
+        <img src="assets/img/marca/gruborja-banner-color.png" alt="GRUBORJA" width="684" height="120">
       </a>
 
-      <button class="nav__boton" type="button" aria-expanded="false" aria-controls="nav-menu">
-        <span class="nav__barras" aria-hidden="true"></span>
-        <span class="sr">Abrir menú</span>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
       </button>
 
-      <nav id="nav-menu" class="nav__menu" aria-label="Principal">
-        <a href="index.html">Inicio</a>
-        <a href="nosotros.html" aria-current="page">Nosotros</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="portafolio.html">Proyectos</a>
-        <a href="blog.html">Blog</a>
-        <a class="nav__cta" href="contacto.html">Contacto</a>
+      <nav class="main-nav" id="menu-principal" aria-label="Navegación principal">
+        <ul class="main-nav__list" role="list">
+          <li><a class="main-nav__link" href="index.html">Inicio</a></li>
+          <li><a class="main-nav__link" href="nosotros.html" aria-current="page">Nosotros</a></li>
+          <li><a class="main-nav__link" href="servicios.html">Servicios</a></li>
+          <li><a class="main-nav__link" href="portafolio.html">Portafolio</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm" href="mailto:infogrupoborja@gmail.com?subject=Solicitud%20de%20asesor%C3%ADa%20t%C3%A9cnica">Contáctanos</a>
       </nav>
     </div>
   </header>
@@ -118,8 +125,8 @@
         </div>
 
         <figure class="portada__retrato">
-          <img src="assets/img/fundador/daniel-borja-retrato.webp" width="568" height="709"
-               alt="Retrato del Arq. Daniel Borja con los brazos cruzados, vistiendo camisa de GRUBORJA">
+          <img src="assets/img/equipo/daniel-borja.webp" width="1000" height="1250" fetchpriority="high"
+               alt="Retrato del Arq. Daniel Borja con los brazos cruzados, vistiendo camisa azul de GRUBORJA">
         </figure>
 
       </div>
@@ -223,7 +230,7 @@
 
             <!-- REEMPLAZAR: fotografía de archivo (graduación 1982, La Preparatoria, etc.)
                  Cambia este <div> por:
-                 <img src="assets/img/fundador/graduacion-1982.webp" width="800" height="1000" alt="..."> -->
+                 <img src="assets/img/equipo/graduacion-1982.webp" width="800" height="1000" alt="..."> -->
             <figure class="pendiente" aria-label="Espacio reservado para fotografía de archivo">
               <div class="pendiente__lienzo" aria-hidden="true">
                 <span>Fotografía de archivo</span>
@@ -365,7 +372,7 @@
             </ol>
 
             <figure class="foto">
-              <img src="assets/img/fundador/villa-maya.webp" width="1200" height="900" loading="lazy"
+              <img src="assets/img/proyectos/villa-maya/villa-maya-1.webp" width="1200" height="900" loading="lazy"
                    alt="Hotel Villa Maya en Petén: cabañas de madera entre vegetación tropical">
               <figcaption><span>Hotel Villa Maya · Petén</span><span>Premio Opus 1991</span></figcaption>
             </figure>
@@ -389,7 +396,7 @@
                MURO DE MARCAS · "Han confiado en su trabajo"
                Por ahora cada casilla muestra el nombre en texto.
                Cuando tengas la autorización y el logo, cambia el <span> por:
-               <img src="assets/logos/nombre.svg" alt="Nombre de la marca">
+               <img src="assets/logos/clientes/nombre.svg" alt="Nombre de la marca">
                Para quitar o agregar marcas, borra o copia un <li>.
                ====================================================== -->
           <div class="marcas">
@@ -403,109 +410,121 @@
               <li class="marca"><span>Agroindustrias HAME</span></li>
               <li class="marca"><span>Inmobiliaria El Globo</span></li>
               <li class="marca"><span>Grupo Los Tres</span></li>
-              <li class="marca"><span>Hotel Quinta Real</span></li>
+              <li class="marca"><span>Hilton Guatemala City</span></li>
               <li class="marca"><span>Supermercados SUMA</span></li>
               <li class="marca"><span>Colegio Liceo Javier</span></li>
               <li class="marca"><span>Hoteles G6</span></li>
+              <li class="marca"><span>Grupo Portalis</span></li>
+              <li class="marca"><span>Grupo Cadar</span></li>
+              <li class="marca"><span>Prodinsa</span></li>
+              <li class="marca"><span>CENDIS</span></li>
             </ul>
           </div>
 
           <!-- ======================================================
                OBRA POR SECTOR
-               Índice ligero: una foto por sector y la lista de obras.
-               Cada fila lleva al portafolio (portafolio.html#sector).
+               Los sectores son los mismos del portafolio (data/proyectos.js).
+               Cada fila muestra solo las obras más representativas:
+               "Ver sector" abre portafolio.html?sector=<clave> ya filtrado,
+               y cada obra subrayada abre su ficha (portafolio.html#<id>).
                ====================================================== -->
           <h3 class="subtitulo">Obra por sector</h3>
           <ul class="sectores">
             <li class="sector">
-              <img class="sector__foto" src="assets/img/fundador/vista-real.webp" width="1200" height="900" loading="lazy" alt="Hotel Vista Real al atardecer">
+              <img class="sector__foto" src="assets/img/proyectos/casa-botran/casa-botran-1.webp" width="1200" height="900" loading="lazy" alt="Centro de añejamiento Casa Botrán">
               <div class="sector__cabeza">
-                <h4 class="sector__nombre">Hotelero</h4>
-                <span class="sector__conteo">7 obras</span>
+                <h4 class="sector__nombre">Comercial e Industria</h4>
+                <span class="sector__conteo">13 obras</span>
               </div>
-              <ul class="sector__obras">
-                  <li>Hotel Villa Maya, Petén</li>
-                  <li>Hotel Quinta Real (hoy Vista Real)</li>
-                  <li>Villa Santa Catarina</li>
-                  <li>Santa Catarina Palopó</li>
-                  <li>Villa Petenchel</li>
-                  <li>Villa Grande Chichicastenango</li>
-                  <li>Consultoría Hoteles G6, Campeche</li>
-              </ul>
-              <a class="sector__enlace" href="portafolio.html#hotelero" aria-label="Ver obras del sector hotelero en el portafolio">Ver en portafolio <span aria-hidden="true">→</span></a>
+              <div>
+                <p class="sector__texto">Centros comerciales, supermercados, naves industriales, oficinas corporativas y showrooms automotrices.</p>
+                <ul class="sector__obras">
+                  <li><a href="portafolio.html#casa-botran">Casa Botrán</a></li>
+                  <li>Casa de las Nubes · Ron Zacapa</li>
+                  <li><a href="portafolio.html#las-puertas">Centro Comercial Las Puertas</a></li>
+                  <li><a href="portafolio.html#edificio-hame">Edificio HAME</a></li>
+                </ul>
+              </div>
+              <a class="sector__enlace" href="portafolio.html?sector=comercial" aria-label="Ver el sector Comercial e Industria en el portafolio">Ver sector <span aria-hidden="true">→</span></a>
             </li>
             <li class="sector">
-              <img class="sector__foto" src="assets/img/fundador/centro-medico.webp" width="1200" height="900" loading="lazy" alt="Torre del Hospital Centro Médico">
+              <img class="sector__foto" src="assets/img/proyectos/hilton-guatemala/hilton-guatemala-1.webp" width="1200" height="900" loading="lazy" alt="Hotel Hilton Guatemala City">
+              <div class="sector__cabeza">
+                <h4 class="sector__nombre">Hotelería</h4>
+                <span class="sector__conteo">5 obras</span>
+              </div>
+              <div>
+                <p class="sector__texto">Hoteles urbanos y de destino, desde grandes complejos hasta hoteles ecológicos.</p>
+                <ul class="sector__obras">
+                  <li><a href="portafolio.html#hilton-guatemala">Hilton Guatemala City</a></li>
+                  <li><a href="portafolio.html#villa-maya">Hotel Villa Maya · Premio Opus 1991</a></li>
+                  <li><a href="portafolio.html#villas-de-guatemala">Hoteles Villas de Guatemala</a></li>
+                </ul>
+              </div>
+              <a class="sector__enlace" href="portafolio.html?sector=hoteleria" aria-label="Ver el sector Hotelería en el portafolio">Ver sector <span aria-hidden="true">→</span></a>
+            </li>
+            <li class="sector">
+              <img class="sector__foto" src="assets/img/proyectos/centro-medico/centro-medico-1.webp" width="1200" height="900" loading="lazy" alt="Torre del Hospital Centro Médico">
               <div class="sector__cabeza">
                 <h4 class="sector__nombre">Hospitalario</h4>
                 <span class="sector__conteo">3 obras</span>
               </div>
-              <ul class="sector__obras">
-                  <li>Hospital Centro Médico, zona 10</li>
-                  <li>UNOP · Hospital de Niños con Cáncer</li>
-                  <li>Hospital Yarden, zona 7</li>
-              </ul>
-              <a class="sector__enlace" href="portafolio.html#hospitalario" aria-label="Ver obras del sector hospitalario en el portafolio">Ver en portafolio <span aria-hidden="true">→</span></a>
+              <div>
+                <p class="sector__texto">Hospitales y unidades especializadas con requerimientos técnicos exigentes.</p>
+                <ul class="sector__obras">
+                  <li><a href="portafolio.html#centro-medico">Hospital Centro Médico</a></li>
+                  <li><a href="portafolio.html#unop">UNOP · Hospital de Niños con Cáncer</a></li>
+                  <li>Hospital Yarden</li>
+                </ul>
+              </div>
+              <a class="sector__enlace" href="portafolio.html?sector=hospitalario" aria-label="Ver el sector Hospitalario en el portafolio">Ver sector <span aria-hidden="true">→</span></a>
             </li>
             <li class="sector">
-              <img class="sector__foto" src="assets/img/fundador/casa-de-las-nubes.webp" width="1200" height="900" loading="lazy" alt="Naves de añejamiento de Casa de las Nubes">
+              <img class="sector__foto" src="assets/img/proyectos/liceo-javier/liceo-javier-1.webp" width="1200" height="900" loading="lazy" alt="Colegio Liceo Javier">
               <div class="sector__cabeza">
-                <h4 class="sector__nombre">Industrial</h4>
+                <h4 class="sector__nombre">Academia</h4>
                 <span class="sector__conteo">2 obras</span>
               </div>
-              <ul class="sector__obras">
-                  <li>Casa de las Nubes · Ron Zacapa</li>
-                  <li>Casa Botrán, centro de mezclas y añejamiento</li>
-              </ul>
-              <a class="sector__enlace" href="portafolio.html#industrial" aria-label="Ver obras del sector industrial en el portafolio">Ver en portafolio <span aria-hidden="true">→</span></a>
+              <div>
+                <p class="sector__texto">Colegios y espacios deportivos para la formación de nuevas generaciones.</p>
+                <ul class="sector__obras">
+                  <li><a href="portafolio.html#liceo-javier">Colegio Liceo Javier</a></li>
+                  <li><a href="portafolio.html#principe-de-asturias">Polideportivo Príncipe de Asturias</a></li>
+                </ul>
+              </div>
+              <a class="sector__enlace" href="portafolio.html?sector=academia" aria-label="Ver el sector Academia en el portafolio">Ver sector <span aria-hidden="true">→</span></a>
             </li>
             <li class="sector">
-              <img class="sector__foto" src="assets/img/fundador/edificio-hame.webp" width="1200" height="900" loading="lazy" alt="Edificio corporativo HAME">
-              <div class="sector__cabeza">
-                <h4 class="sector__nombre">Corporativo</h4>
-                <span class="sector__conteo">3 obras</span>
+              <!-- Sin foto todavía: cuando la tengas, cambia este <div> por
+                   <img class="sector__foto" src="assets/img/proyectos/residencia-martel-gonzalez/residencia-martel-gonzalez-1.webp" width="1200" height="900" loading="lazy" alt="Residencia Martel González"> -->
+              <div class="sector__foto sector__foto--pendiente" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
               </div>
-              <ul class="sector__obras">
-                  <li>Edificio HAME</li>
-                  <li>Edificio El Globo, 15 niveles</li>
-                  <li>Edificio VIYA, Oakland</li>
-              </ul>
-              <a class="sector__enlace" href="portafolio.html#corporativo" aria-label="Ver obras del sector corporativo en el portafolio">Ver en portafolio <span aria-hidden="true">→</span></a>
-            </li>
-            <li class="sector">
-              <img class="sector__foto" src="assets/img/fundador/las-puertas.webp" width="1200" height="900" loading="lazy" alt="Centro comercial Las Puertas">
               <div class="sector__cabeza">
-                <h4 class="sector__nombre">Comercial</h4>
-                <span class="sector__conteo">8 obras</span>
+                <h4 class="sector__nombre">Residencial</h4>
+                <span class="sector__conteo">Vivienda y apartamentos</span>
               </div>
-              <ul class="sector__obras">
-                  <li>Centro Comercial Las Puertas</li>
-                  <li>Ferretería y Plaza El Globo</li>
-                  <li>Grupo Los Tres · Porsche y Volvo</li>
-                  <li>Supermercados SUMA</li>
-                  <li>Multimayoreo</li>
-                  <li>Mi Super Fresh, Marinico y Pinula</li>
-                  <li>C.C. Santa María, Quetzaltenango</li>
-                  <li>C.C. Santa Bárbara, Sacatepéquez</li>
-              </ul>
-              <a class="sector__enlace" href="portafolio.html#comercial" aria-label="Ver obras del sector comercial en el portafolio">Ver en portafolio <span aria-hidden="true">→</span></a>
-            </li>
-            <li class="sector">
-              <img class="sector__foto" src="assets/img/fundador/liceo-javier.webp" width="1200" height="900" loading="lazy" alt="Colegio Liceo Javier">
-              <div class="sector__cabeza">
-                <h4 class="sector__nombre">Educativo</h4>
-                <span class="sector__conteo">2 obras</span>
+              <div>
+                <p class="sector__texto">Viviendas personales diseñadas con cada cliente, edificios de apartamentos y condominios.</p>
+                <ul class="sector__obras">
+                  <li>Edificio de apartamentos Jaime Briz</li>
+                  <li>Residencia Martel González</li>
+                  <li>Residencias particulares</li>
+                </ul>
               </div>
-              <ul class="sector__obras">
-                  <li>Colegio Liceo Javier</li>
-                  <li>Colegio Príncipe de Asturias</li>
-              </ul>
-              <a class="sector__enlace" href="portafolio.html#educativo" aria-label="Ver obras del sector educativo en el portafolio">Ver en portafolio <span aria-hidden="true">→</span></a>
             </li>
           </ul>
 
+          <div class="consultoria">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 9h8M8 12h5"/></svg>
+            <div>
+              <strong>Consultorías personalizadas</strong>
+              <p>¿Tienes un proyecto propio? Te acompañamos con el mismo criterio técnico que aplicamos en cada obra, desde la primera idea hasta la supervisión.</p>
+            </div>
+            <a class="enlace-flecha consultoria__enlace" href="mailto:infogrupoborja@gmail.com?subject=Solicitud%20de%20consultor%C3%ADa%20personalizada">Consultar <span aria-hidden="true">→</span></a>
+          </div>
+
           <p class="nota-obra">
-            También: residencias, edificios, condominios e interiorismo para comercios y oficinas.
             <span class="nota-obra__mencion">Menciones honoríficas, Concurso de Obras de Cementos Progreso · 2000 y 2002.</span>
           </p>
 
@@ -592,13 +611,13 @@
 
           <ul class="duo">
             <li class="duo__persona">
-              <img src="assets/img/fundador/daniel-borja-retrato.webp" width="568" height="709" loading="lazy" alt="Arq. Daniel Borja">
+              <img src="assets/img/equipo/daniel-borja.webp" width="1000" height="1250" loading="lazy" alt="Arq. Daniel Borja">
               <p class="duo__nombre">Arq. Daniel Borja</p>
               <p class="duo__cargo">Fundador · Visión arquitectónica</p>
               <a href="https://www.linkedin.com/in/arqdanielborja/" target="_blank" rel="noopener">LinkedIn ↗</a>
             </li>
             <li class="duo__persona">
-              <img src="assets/img/fundador/lucia-borja-retrato.webp" width="568" height="709" loading="lazy" alt="Ing. Lucía Borja">
+              <img src="assets/img/equipo/lucia-borja.webp" width="1000" height="1250" loading="lazy" alt="Ing. Lucía Borja">
               <p class="duo__nombre">Ing. Lucía Borja</p>
               <p class="duo__cargo">Gerencia · Excelencia en ingeniería</p>
               <a href="https://www.linkedin.com/in/luciaborja/" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -610,36 +629,53 @@
 
   </main>
 
-  <!-- ==========================================================
-       PIE DE PÁGINA
-       ========================================================== -->
-  <footer class="pie">
-    <div class="contenedor pie__grid">
-      <div>
-        <p class="pie__marca">GRUBORJA</p>
-        <p>Trayectoria desde 1983 · Grupo Borja desde 2019.</p>
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div class="site-footer__brand">
+        <img class="site-footer__logo" src="assets/img/marca/gruborja-banner-blanco.png" alt="GRUBORJA" width="683" height="120">
+        <p>Proyección arquitectónica, sistemas estructurales y gestión de proyectos de infraestructura en Guatemala y Centroamérica desde 1983.</p>
       </div>
+
+      <nav aria-label="Navegación del pie de página">
+        <h2 class="site-footer__title">Navegación</h2>
+        <ul class="site-footer__list" role="list">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="portafolio.html">Portafolio</a></li>
+        </ul>
+      </nav>
+
       <div>
-        <p class="pie__titulo">Explorar</p>
-        <a href="portafolio.html">Proyectos</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="nosotros.html">Nosotros</a>
-      </div>
-      <div>
-        <p class="pie__titulo">Contacto</p>
-        <a href="contacto.html">Contacto técnico</a>
-        <a href="https://www.linkedin.com/in/arqdanielborja/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-      <div>
-        <p class="pie__titulo">Ubicación</p>
-        <p>3a. Calle No. 3-54 Zona 1, Centro Histórico, Guatemala</p>
+        <h2 class="site-footer__title">Sede central</h2>
+        <ul class="site-footer__list" role="list">
+          <li>
+            <a href="tel:+50222204814">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+              (+502) 2220 4814
+            </a>
+          </li>
+          <li>
+            <a href="mailto:infogrupoborja@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="m3 6 9 7 9-7"/></svg>
+              infogrupoborja@gmail.com
+            </a>
+          </li>
+        </ul>
+        <address class="site-footer__address">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <span>3a. Calle No. 3-54, Zona 1, Centro Histórico, Ciudad de Guatemala</span>
+        </address>
       </div>
     </div>
-    <div class="contenedor pie__base">
-      <p>© <span id="anio-actual">2026</span> Grupo Borja. Infraestructura con visión de futuro.</p>
+
+    <div class="site-footer__bottom">
+      <div class="container">© <span data-year>2026</span> Grupo Borja. Infraestructura con visión de futuro.</div>
     </div>
   </footer>
 
-  <script src="js/fundador.js" defer></script>
+  <!-- Scripts: el general del sitio y el de esta página -->
+  <script src="js/main.js"></script>
+  <script src="js/fundador.js"></script>
 </body>
 </html>

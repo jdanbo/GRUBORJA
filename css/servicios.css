@@ -1,0 +1,276 @@
+/* =========================================================
+   GRUBORJA — PÁGINA DE SERVICIOS (proceso en 5 fases)
+   Usa los tokens de variables.css.
+   ========================================================= */
+
+/* ---------- Intro + navegador de fases ---------- */
+.proceso-intro { padding-bottom: 0; }
+
+.proceso-intro__head { max-width: 760px; }
+
+.fases-nav { margin-top: var(--space-7); }
+
+.fases-nav__list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: var(--border);
+  border-left: var(--border);
+  background: var(--color-white);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fases-nav__link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  height: 100%;
+  padding: var(--space-5);
+  border-right: var(--border);
+  border-bottom: var(--border);
+  color: var(--color-navy);
+  text-decoration: none;
+  transition: background-color var(--t-fast), color var(--t-fast);
+}
+
+/* Línea morada que crece al pasar el cursor */
+.fases-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 3px;
+  background: var(--color-purple);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t-med) var(--ease);
+}
+
+.fases-nav__link:hover { background: var(--color-lilac-soft); }
+.fases-nav__link:hover::after,
+.fases-nav__link.is-active::after { transform: scaleX(1); }
+
+.fases-nav__num {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-purple);
+}
+
+.fases-nav__name {
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+@media (max-width: 899px) {
+  .fases-nav__list { grid-template-columns: 1fr; }
+  .fases-nav__link {
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--space-4);
+    padding: var(--space-4);
+  }
+}
+
+/* ---------- Fases ---------- */
+.fases { padding-block: var(--section-y); }
+
+.fase { scroll-margin-top: calc(var(--header-h) + var(--space-5)); }
+.fase + .fase { margin-top: var(--section-y); }
+
+.fase__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: start;
+}
+
+.fase--reverse .fase__media { order: 2; }
+
+.fase__media {
+  margin: 0;
+  padding: var(--space-3);
+  border: var(--border);
+  background: var(--color-white);
+  position: sticky;
+  top: calc(var(--header-h) + var(--space-5));
+}
+
+.fase__media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.fase__media--tall img { aspect-ratio: 4 / 5; }
+
+.fase__num {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--color-purple);
+  letter-spacing: 0.05em;
+}
+
+/* Anillo morado: el mismo círculo del logo GRUBORJA */
+.fase__ring {
+  width: 28px;
+  height: 28px;
+  border: 7px solid var(--color-purple);
+  border-radius: 50%;
+}
+
+.fase__title {
+  margin-top: var(--space-4);
+  font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-navy);
+}
+
+.fase__text {
+  margin-top: var(--space-4);
+  font-size: var(--fs-md);
+}
+
+.fase__list {
+  margin-top: var(--space-5);
+  padding: 0;
+  list-style: none;
+}
+
+.fase__list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+}
+
+.fase__list li::before {
+  content: "";
+  flex: 0 0 20px;
+  height: 1px;
+  background: var(--color-purple);
+}
+
+.fase:target .fase__body { animation: fase-pulso 1.2s var(--ease); }
+
+@keyframes fase-pulso {
+  0%   { background: var(--color-lilac-soft); }
+  100% { background: transparent; }
+}
+
+@media (max-width: 799px) {
+  .fase__inner { grid-template-columns: 1fr; }
+  .fase--reverse .fase__media { order: 0; }
+  .fase__media { position: static; }
+}
+
+/* ---------- Permisos ---------- */
+.permisos {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: center;
+}
+
+.entidades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.entidades li {
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid var(--color-navy);
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  font-weight: 500;
+  color: var(--color-navy);
+}
+
+.entidades li:last-child {
+  border-style: dashed;
+  color: var(--color-text-soft);
+}
+
+@media (max-width: 799px) {
+  .permisos { grid-template-columns: 1fr; }
+}
+
+/* ---------- Mosaico de obra ---------- */
+.obra-mosaico {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: var(--border);
+  background: var(--color-white);
+}
+
+.obra-mosaico img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fases-nav__link::after { transition: none; }
+  .fase:target .fase__body { animation: none; }
+}
+
+/* ---------- Seguimiento post-entrega ---------- */
+.post-entrega { background: var(--color-lilac-soft); }
+
+.post-entrega__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: center;
+}
+
+.post-entrega__dato {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(1.5rem, 1rem + 2vw, 3rem);
+  border: 1px solid var(--color-purple);
+  background: var(--color-white);
+}
+
+.post-entrega__num {
+  font-size: clamp(4rem, 2.5rem + 6vw, 8rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-purple);
+}
+
+.post-entrega__num sup { font-size: 0.45em; vertical-align: super; }
+
+.post-entrega__unidad {
+  margin-top: var(--space-3);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-navy);
+}
+
+@media (max-width: 799px) {
+  .post-entrega__inner { grid-template-columns: 1fr; }
+}

@@ -1,26 +1,19 @@
 /* =========================================================
    GRUBORJA — PÁGINA DE SERVICIOS
-   Acordeón "Ver detalles técnicos" en cada tarjeta.
+   Navegador de fases: marca la fase que está en pantalla.
    ========================================================= */
 
-document.querySelectorAll(".accordion__btn").forEach((boton) => {
-  const panel = document.getElementById(boton.getAttribute("aria-controls"));
-  const texto = boton.querySelector(".accordion__label");
+const enlacesFase = document.querySelectorAll(".fases-nav__link");
 
-  boton.addEventListener("click", () => {
-    const abierto = boton.getAttribute("aria-expanded") === "true";
+if ("IntersectionObserver" in window && enlacesFase.length) {
+  const observador = new IntersectionObserver((entradas) => {
+    entradas.forEach((entrada) => {
+      if (!entrada.isIntersecting) return;
+      enlacesFase.forEach((enlace) => {
+        enlace.classList.toggle("is-active", enlace.hash === "#" + entrada.target.id);
+      });
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
 
-    boton.setAttribute("aria-expanded", String(!abierto));
-    panel.classList.toggle("is-open", !abierto);
-    // "inert" evita que el teclado entre al panel cuando está cerrado
-    panel.inert = abierto;
-    texto.textContent = abierto ? "Ver detalles técnicos" : "Ocultar detalles";
-  });
-});
-
-/* Si se llega con un ancla (servicios.html#gestion), abre ese detalle */
-window.addEventListener("load", () => {
-  const destino = location.hash && document.querySelector(location.hash);
-  const boton = destino && destino.querySelector(".accordion__btn");
-  if (boton) boton.click();
-});
+  document.querySelectorAll(".fase").forEach((fase) => observador.observe(fase));
+}

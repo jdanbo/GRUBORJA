@@ -136,7 +136,7 @@ function crearModal() {
       <h2 class="spec__title" id="modal-titulo"></h2>
       <p class="spec__subtitle"></p>
 
-      <h3 class="spec__heading">Ficha técnica</h3>
+      <h3 class="spec__heading spec__heading--datos">Ficha técnica</h3>
       <dl class="spec__grid"></dl>
 
       <div class="spec__block spec__block--alcance">
@@ -270,6 +270,10 @@ function abrirModalProyecto(id, lista) {
     ["Cliente", proyecto.cliente],
     ["Tipología", proyecto.tipologia]
   ].filter(([, valor]) => tieneDato(valor));
+
+  // Proyectos con "fichaBasica: true" muestran solo datos generales
+  modal.querySelector(".spec__heading--datos").textContent =
+    proyecto.fichaBasica ? "Datos del proyecto" : "Ficha técnica";
 
   modal.querySelector(".spec__grid").innerHTML = datos
     .map(([etiqueta, valor]) => `<div class="spec__cell"><dt>${etiqueta}</dt><dd>${valor}</dd></div>`)

@@ -180,7 +180,7 @@ const PROYECTOS = [
     alcance: [],
     accion: ACCION_INTEGRAL,
     descripcion: "Habilitación de las áreas de servicio del complejo: recepción de talleres, sala de clientes, talleres de mecánica y enderezado, y oficinas administrativas.",
-    fotos: ["grupo-los-tres/grupo-los-tres-3.webp"],
+    fotos: ["grupo-los-tres/glt-servicios-volvo.webp", "grupo-los-tres/grupo-los-tres-3.webp"],
     destacado: false
   },
   {
@@ -196,7 +196,7 @@ const PROYECTOS = [
     alcance: [],
     accion: ACCION_INTEGRAL,
     descripcion: "Desarrollo de las áreas corporativas y de apoyo del complejo: oficinas gerenciales, cafetería para colaboradores, estacionamientos y sala de ventas de vehículos usados.",
-    imagenes: 0,
+    fotos: ["grupo-los-tres/glt-oficinas-apoyo.webp"],
     destacado: false
   },
   {
@@ -212,7 +212,7 @@ const PROYECTOS = [
     alcance: [],
     accion: ["Diseño arquitectónico", "Dirección de proyecto", "Supervisión"],
     descripcion: "Serie de remodelaciones para las marcas representadas por el grupo, adaptando cada sala de exhibición a la identidad de su marca.",
-    imagenes: 0,
+    fotos: ["grupo-los-tres/glt-showrooms-multimarca.webp"],
     destacado: false
   },
   {
@@ -245,7 +245,7 @@ const PROYECTOS = [
     alcance: [],
     accion: ["Diseño arquitectónico", "Dirección de proyecto", "Supervisión"],
     descripcion: "Remodelación de la sala de exhibición MINI sobre la 20 Calle, adecuando el espacio a la imagen de la marca.",
-    imagenes: 0,
+    fotos: ["grupo-los-tres/glt-remodelacion-mini.webp"],
     destacado: false
   },
   {
@@ -261,7 +261,8 @@ const PROYECTOS = [
     alcance: [],
     accion: ["Diseño arquitectónico", "Dirección de proyecto", "Supervisión"],
     descripcion: "Proyecto para la sede de Grupo Los Tres sobre Boulevard Los Próceres, ampliando la presencia comercial del grupo.",
-    imagenes: 0,
+    fotos: ["grupo-los-tres/glt-los-proceres.webp"],
+    credito: "Render de anteproyecto",
     destacado: false
   },
   {
@@ -277,7 +278,8 @@ const PROYECTOS = [
     alcance: [],
     accion: ["Consultoría", "Anteproyecto"],
     descripcion: "Consultoría y desarrollo de anteproyectos para concesionarios de Grupo Los Tres en el interior del país, como base para su expansión regional.",
-    imagenes: 0,
+    fotos: ["grupo-los-tres/glt-concesionarios-interior.webp"],
+    credito: "Render de anteproyecto",
     destacado: false
   },
   {
@@ -287,13 +289,14 @@ const PROYECTOS = [
     sector: "automotriz",
     grupo: "Grupo Los Tres",
     fichaBasica: true,
-    ubicacion: "Panamá",
+    ubicacion: "Calle 50, Ciudad de Panamá",
     cliente: "Grupo Los Tres",
     fecha: "",
     alcance: [],
     accion: ["Colaboración en diseño", "Asesoría técnica"],
     descripcion: "Colaboración en el desarrollo de la agencia de Grupo Los Tres en Panamá, trasladando la experiencia adquirida en Guatemala.",
-    imagenes: 0,
+    fotos: ["grupo-los-tres/glt-agencia-panama.webp"],
+    credito: "Render de anteproyecto",
     destacado: false
   },
   {
@@ -309,7 +312,8 @@ const PROYECTOS = [
     alcance: [],
     accion: ["Colaboración en diseño", "Asesoría técnica"],
     descripcion: "Colaboración en el desarrollo de la agencia MINI en El Salvador, aplicando la experiencia acumulada con el grupo.",
-    imagenes: 0,
+    fotos: ["grupo-los-tres/glt-mini-el-salvador.webp"],
+    credito: "Render de anteproyecto",
     destacado: false
   },
   /* ---------- FIN AUTOMOTRIZ ---------- */

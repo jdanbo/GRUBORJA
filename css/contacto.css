@@ -1,0 +1,839 @@
+/* =========================================================
+   GRUBORJA — PÁGINA DE CONTACTO
+   1. Layout dividido: panel morado (izquierda) + formulario
+   2. Panel de confianza: contacto directo y clientes
+   3. Formulario y microinteracciones de validación
+   4. Ubicación y mapa (Leaflet, cargado bajo demanda)
+   5. Modal de confirmación
+   ========================================================= */
+
+:root {
+  /* Color de error solo para el formulario (contraste AA sobre blanco) */
+  --color-error: #B3261E;
+  --color-error-bg: #FCF1F0;
+}
+
+
+/* =========================================================
+   1. LAYOUT DIVIDIDO
+   La rejilla tiene 4 columnas: [margen] [izquierda] [derecha] [margen].
+   Así el fondo morado llega hasta el borde de la pantalla, pero el
+   texto queda alineado con el resto del sitio (ancho --container).
+   ========================================================= */
+.contacto {
+  position: relative;
+  display: grid;
+  grid-template-columns:
+    1fr
+    minmax(0, calc(var(--container) / 2))
+    minmax(0, calc(var(--container) / 2))
+    1fr;
+  grid-template-rows: auto 1fr;
+  min-height: min(100vh, 1000px);
+  padding-top: var(--header-h);
+}
+
+/* Fondo morado con la foto en duotono */
+.contacto__fondo {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-purple);
+  isolation: isolate;
+}
+
+.contacto__fondo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Foto en gris "multiplicada" sobre el morado = duotono de marca */
+  filter: grayscale(1) contrast(1.15);
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+  animation: hero-zoom 14s var(--ease) both;
+}
+
+/* Degradado para asegurar contraste del texto */
+.contacto__fondo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(170deg, rgba(42, 10, 58, 0.45) 0%, rgba(42, 10, 58, 0.92) 70%);
+}
+
+.contacto__intro,
+.contacto__confianza {
+  grid-column: 2;
+  position: relative;
+  z-index: 1;
+  padding-inline: var(--gutter) var(--space-8);
+  color: var(--color-white);
+}
+
+.contacto__intro {
+  grid-row: 1;
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-7);
+}
+
+.contacto__confianza {
+  grid-row: 2;
+  padding-bottom: var(--space-8);
+}
+
+.contacto__form-wrap {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  align-self: center;
+  width: 100%;
+  max-width: calc(520px + var(--gutter) + var(--space-8));
+  padding: var(--space-8) var(--gutter) var(--space-8) var(--space-8);
+}
+
+/* Etiqueta enmarcada (misma que el hero del sitio) */
+.contacto__tag {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  margin-bottom: var(--space-5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.contacto__titulo {
+  max-width: 13ch;
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+}
+
+.contacto__texto {
+  max-width: 460px;
+  margin-top: var(--space-5);
+  font-size: var(--fs-md);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* ---------- Móvil y tablet: una sola columna ----------
+   Orden: título → formulario → contacto directo y clientes */
+@media (max-width: 899px) {
+  .contacto {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    min-height: 0;
+  }
+
+  .contacto__fondo,
+  .contacto__intro {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .contacto__intro {
+    padding: var(--space-7) var(--gutter);
+  }
+
+  .contacto__form-wrap {
+    grid-column: 1;
+    grid-row: 2;
+    max-width: none;
+    padding: var(--space-7) var(--gutter);
+  }
+
+  .contacto__confianza {
+    grid-column: 1;
+    grid-row: 3;
+    padding: var(--space-7) var(--gutter);
+    background: var(--color-purple-deep);
+  }
+}
+
+
+/* =========================================================
+   2. PANEL DE CONFIANZA
+   ========================================================= */
+
+/* ---------- Contacto directo ---------- */
+.directo {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.directo__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding-block: var(--space-2);
+}
+
+.directo__item svg {
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  color: var(--color-lilac);
+}
+
+.directo__label {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.directo__valor {
+  display: block;
+  color: rgba(255, 255, 255, 0.72);
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: color var(--t-fast) var(--ease), background-size var(--t-med) var(--ease);
+}
+
+.directo__item:hover .directo__valor {
+  color: var(--color-white);
+  background-size: 100% 1px;
+}
+
+/* ---------- Clientes (retícula en escala de grises) ---------- */
+.marcas {
+  margin-top: var(--space-7);
+}
+
+.marcas__label {
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Líneas de 1px entre celdas (constante de marca) */
+.marcas__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.marca {
+  display: grid;
+  place-items: center;
+  min-height: 76px;
+  padding: var(--space-3);
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  text-align: center;
+  transition: background-color var(--t-med) var(--ease);
+}
+
+.marca__nombre {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color var(--t-med) var(--ease);
+}
+
+/* Logos en blanco y semitransparentes (cualquier color de origen) */
+.marca__logo {
+  max-width: 100%;
+  max-height: 30px;
+  width: auto;
+  filter: grayscale(1) brightness(0) invert(1);
+  opacity: 0.5;
+  transition: opacity var(--t-med) var(--ease);
+}
+
+.marca:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.marca:hover .marca__nombre {
+  color: var(--color-white);
+}
+
+.marca:hover .marca__logo {
+  opacity: 1;
+}
+
+@media (max-width: 459px) {
+  .marcas__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* =========================================================
+   3. FORMULARIO
+   ========================================================= */
+.contacto__form-titulo {
+  font-size: var(--fs-xl);
+  color: var(--color-purple-deep);
+  letter-spacing: -0.02em;
+}
+
+.form {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.form__grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (min-width: 560px) {
+  .form__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---------- Campo ---------- */
+.campo__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  transition: color var(--t-fast) var(--ease);
+}
+
+.campo__opcional {
+  padding: 1px var(--space-2);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  background: var(--color-bg-alt);
+}
+
+/* La etiqueta se tiñe de morado mientras escribes en su campo */
+.campo:focus-within .campo__label {
+  color: var(--color-purple);
+}
+
+.campo__control {
+  position: relative;
+}
+
+/* Línea morada que "crece" desde la izquierda al enfocar */
+.campo__control::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-purple);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t-med) var(--ease);
+  pointer-events: none;
+}
+
+.campo__control:focus-within::after {
+  transform: scaleX(1);
+}
+
+.campo__input {
+  display: block;
+  width: 100%;
+  min-height: 52px;
+  padding: 0.8rem 2.75rem 0.8rem 1rem;
+  font: inherit;
+  font-size: var(--fs-base);
+  color: var(--color-navy);
+  background: var(--color-white);
+  border: var(--border);
+  border-radius: var(--radius);
+  appearance: none;
+  transition: border-color var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease);
+}
+
+.campo__input::placeholder {
+  color: #9A9CA8;
+  opacity: 1;
+}
+
+.campo__input:hover {
+  border-color: #B9BAC3;
+}
+
+/* El foco se marca con borde + línea morada inferior */
+.campo__input:focus,
+.campo__input:focus-visible {
+  outline: none;
+  border-color: var(--color-purple);
+}
+
+.campo__input--area {
+  min-height: 136px;
+  max-height: 340px;
+  resize: vertical;
+  line-height: 1.6;
+  /* El cuadro crece solo mientras escribes (navegadores modernos) */
+  field-sizing: content;
+}
+
+/* ---------- Estados de validación ----------
+   JS agrega .is-touched al campo cuando el usuario sale de él (blur).
+   Así no se marca en rojo nada que la persona aún no ha tocado. */
+.campo.is-touched .campo__input:invalid {
+  border-color: var(--color-error);
+  background: var(--color-error-bg);
+}
+
+.campo.is-touched .campo__input:invalid ~ .campo__ok {
+  opacity: 0;
+}
+
+.campo.is-touched:has(.campo__input:invalid) .campo__label {
+  color: var(--color-error);
+}
+
+/* Palomita verde-morada que aparece cuando el campo es válido */
+.campo__ok {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  width: 18px;
+  height: 18px;
+  margin-top: -9px;
+  border-radius: 50%;
+  background: var(--color-purple);
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity var(--t-fast) var(--ease), transform var(--t-med) cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+.campo__ok::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 3.5px;
+  width: 5px;
+  height: 9px;
+  border: solid var(--color-white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.campo__input--area ~ .campo__ok {
+  top: 1.1rem;
+  margin-top: 0;
+}
+
+.campo.is-touched .campo__input:valid ~ .campo__ok {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.campo__error {
+  margin-top: var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--color-error);
+  animation: fade-in var(--t-fast) var(--ease);
+}
+
+.campo__error:empty {
+  display: none;
+}
+
+/* Pequeño "empujón" al intentar enviar con errores */
+.campo.is-sacudido .campo__control {
+  animation: sacudir 0.36s var(--ease);
+}
+
+@keyframes sacudir {
+  0%, 100% { transform: none; }
+  25%      { transform: translateX(-6px); }
+  50%      { transform: translateX(5px); }
+  75%      { transform: translateX(-3px); }
+}
+
+/* ---------- Trampa anti-spam (fuera de pantalla) ---------- */
+.form__trampa {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ---------- Alerta de error de envío ---------- */
+.form__alerta {
+  padding: var(--space-4);
+  font-size: var(--fs-sm);
+  color: var(--color-navy);
+  background: var(--color-error-bg);
+  border-left: 3px solid var(--color-error);
+}
+
+.form__alerta a {
+  font-weight: 600;
+  color: var(--color-error);
+  text-decoration: underline;
+}
+
+/* ---------- Botón de envío ---------- */
+.form__enviar {
+  width: 100%;
+  margin-top: var(--space-2);
+}
+
+.form__spinner {
+  display: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: girar 0.7s linear infinite;
+}
+
+.form__enviar.is-enviando {
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.form__enviar.is-enviando .form__spinner {
+  display: block;
+}
+
+.form__enviar.is-enviando svg {
+  display: none;
+}
+
+@keyframes girar {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Microcopy bajo el botón ---------- */
+.form__nota {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  color: var(--color-text-soft);
+}
+
+.form__nota svg {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  color: var(--color-purple);
+}
+
+.form__nota strong {
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+
+/* =========================================================
+   4. UBICACIÓN Y MAPA
+   ========================================================= */
+.ubicacion__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: var(--space-7);
+  align-items: center;
+}
+
+@media (max-width: 899px) {
+  .ubicacion__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.ubicacion__caja {
+  margin-top: var(--space-6);
+  padding: var(--space-5);
+  background: var(--color-white);
+  border: var(--border);
+  border-left: 3px solid var(--color-purple);
+}
+
+.ubicacion__caja-titulo {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-purple);
+}
+
+.ubicacion__caja p {
+  color: var(--color-navy);
+}
+
+.ubicacion__acciones {
+  margin-top: var(--space-5);
+}
+
+/* ---------- Contenedor del mapa ---------- */
+.mapa {
+  position: relative;
+  height: clamp(340px, 30vw + 120px, 480px);
+  border: var(--border);
+  background: #ECECEF;
+  overflow: hidden;
+}
+
+.mapa__lienzo {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Respaldo: curvas de nivel dibujadas con CSS + dirección */
+.mapa__respaldo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  text-align: center;
+  color: var(--color-navy);
+  background:
+    repeating-radial-gradient(circle at 32% 44%, transparent 0 26px, rgba(13, 19, 48, 0.06) 26px 27px),
+    repeating-radial-gradient(circle at 78% 70%, transparent 0 34px, rgba(13, 19, 48, 0.05) 34px 35px);
+  transition: opacity var(--t-med) var(--ease);
+}
+
+.mapa__respaldo svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--color-purple);
+}
+
+/* Cuando el mapa termina de cargar, el respaldo se desvanece */
+.mapa.is-listo .mapa__respaldo {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mapa__aviso {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-4);
+  z-index: 500;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-white);
+  background: rgba(13, 19, 48, 0.88);
+  transform: translateX(-50%);
+  pointer-events: none;
+  animation: fade-in var(--t-fast) var(--ease);
+}
+
+/* ---------- Ajustes visuales de Leaflet ---------- */
+.mapa .leaflet-container {
+  font-family: var(--font-base);
+  background: #ECECEF;
+}
+
+/* Mapa monocromático: solo las calles en gris */
+.mapa .leaflet-tile-pane {
+  filter: grayscale(1) contrast(1.05) brightness(1.02);
+}
+
+.mapa .leaflet-bar {
+  border: var(--border);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.mapa .leaflet-bar a {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  color: var(--color-navy);
+  border-radius: 0 !important;
+}
+
+.mapa .leaflet-bar a:hover {
+  background: var(--color-purple);
+  color: var(--color-white);
+}
+
+.mapa .leaflet-control-attribution {
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Etiqueta fija en el centro de la zona */
+.mapa .pin-etiqueta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-purple-deep);
+  background: var(--color-white);
+  border: 0;
+  border-radius: 0;
+  box-shadow: var(--shadow-hover);
+}
+
+.mapa .pin-etiqueta::before {
+  display: none; /* sin la flechita por defecto de Leaflet */
+}
+
+.mapa .pin-etiqueta svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-purple);
+}
+
+
+/* =========================================================
+   5. MODAL DE CONFIRMACIÓN
+   ========================================================= */
+.envio-modal {
+  width: min(540px, 100% - 2rem);
+  max-height: calc(100dvh - 2rem);
+  padding: var(--space-8) var(--space-6) var(--space-7);
+  border: 0;
+  border-top: 4px solid var(--color-purple);
+  background: var(--color-white);
+  color: var(--color-text);
+  text-align: center;
+}
+
+.envio-modal::backdrop {
+  background: rgba(13, 19, 48, 0.78);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.envio-modal[open] {
+  animation: modal-in var(--t-med) var(--ease);
+}
+
+/* Evita que la página se mueva detrás del modal */
+body:has(.envio-modal[open]) {
+  overflow: hidden;
+}
+
+.envio-modal__cerrar {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-text-soft);
+  transition: color var(--t-fast), background-color var(--t-fast);
+}
+
+.envio-modal__cerrar:hover {
+  color: var(--color-navy);
+  background: var(--color-bg-alt);
+}
+
+.envio-modal__cerrar svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Check que se dibuja solo */
+.envio-modal__check {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto var(--space-5);
+  stroke: var(--color-purple);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.envio-modal__circulo {
+  stroke-dasharray: 183;
+  stroke-dashoffset: 183;
+}
+
+.envio-modal__palomita {
+  stroke-dasharray: 36;
+  stroke-dashoffset: 36;
+}
+
+.envio-modal[open] .envio-modal__circulo {
+  animation: dibujar 0.7s var(--ease) 0.15s forwards;
+}
+
+.envio-modal[open] .envio-modal__palomita {
+  animation: dibujar 0.4s var(--ease) 0.75s forwards;
+}
+
+@keyframes dibujar {
+  to { stroke-dashoffset: 0; }
+}
+
+.envio-modal__titulo {
+  font-size: var(--fs-xl);
+  color: var(--color-purple-deep);
+  letter-spacing: -0.02em;
+}
+
+.envio-modal__texto {
+  max-width: 400px;
+  margin: var(--space-4) auto 0;
+  color: var(--color-text-soft);
+}
+
+.envio-modal__texto strong {
+  color: var(--color-navy);
+  font-weight: 600;
+}
+
+.envio-modal__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+@media (max-width: 479px) {
+  .envio-modal {
+    padding-inline: var(--space-5);
+  }
+
+  .envio-modal__acciones .btn {
+    width: 100%;
+  }
+}
